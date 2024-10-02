@@ -14,7 +14,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 app.use(cors({
     origin: 'https://capitalhillsdevelopments.com',  // Allow the frontend domain
-    methods: 'GET,POST'
+    methods: 'GET,POST',
+    optionsSuccessStatus: 200
 }));
 app.use(helmet()); 
 const options = {
