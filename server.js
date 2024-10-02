@@ -181,7 +181,7 @@ app.post('/users/login', async (req, res) => {
     }
 });
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/capital', {
+mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
