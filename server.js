@@ -189,6 +189,12 @@ app.post('/users/login', async (req, res) => {
         res.status(500).json({ error: 'Error logging in' });
     }
 });
+app.use((req, res, next) => {
+    if (req.secure) {
+        return next();
+    }
+    res.redirect(`https://${req.headers.host}${req.url}`);
+});
 https.createServer(options, app).listen(port, () => {
     console.log(`Server is running on https://37.148.206.181:${port}`);
 });
