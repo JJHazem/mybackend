@@ -9,13 +9,7 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-// Connect to MongoDB (replace with your actual MongoDB URI)
-mongoose.connect('mongodb://localhost:27017/capital', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
@@ -183,14 +177,19 @@ app.post('/users/login', async (req, res) => {
     }
 });
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/capital', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
     console.log('Connected to MongoDB');
+    // Start the server after successful connection
+    app.listen(port, '37.148.206.181', () => {
+        console.log(`Server is running on http://your-vps-ip:${port}`);
+    });
 }).catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
+
 
 // Start the server
 app.listen(port, '37.148.206.181', () => {
