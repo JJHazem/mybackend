@@ -196,7 +196,7 @@ mongoose.connect('mongodb://37.148.206.181:27017/capital', {
 .then(() => {
     console.log('Connected to MongoDB');
     app.listen(port, '37.148.206.181', () => {
-        console.log(`Server is running on http://37.148.206.181:${port}`);
+        console.log(`Server is running on https://37.148.206.181:${port}`);
     });
 })
 .catch((error) => {
