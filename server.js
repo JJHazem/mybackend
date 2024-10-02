@@ -191,8 +191,3 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/capital',
 });
 
 
-// Start the server
-app.listen(port, '37.148.206.181', () => {
-    console.log(`Server is running on http://your-vps-ip:${port}`);
-});
-
