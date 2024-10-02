@@ -1,0 +1,665 @@
+[{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147922"
+  },
+  "name": "title",
+  "value": "Capital Hills Developments Company - Home"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147923"
+  },
+  "name": "tel",
+  "value": "16794"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147924"
+  },
+  "name": "coming_soon",
+  "value": "Event Coming Soon!"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147925"
+  },
+  "name": "new_capital_city",
+  "value": "NEW CAPITAL CITY"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147926"
+  },
+  "name": "sheikh_zayed_city",
+  "value": "SHEIKH ZAYED CITY"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147927"
+  },
+  "name": "new_cairo_city",
+  "value": "NEW CAIRO CITY"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147928"
+  },
+  "name": "october_city",
+  "value": "6TH OF OCTOBER CITY"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147929"
+  },
+  "name": "home",
+  "value": "Home"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114792a"
+  },
+  "name": "about_us",
+  "value": "About Us"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114792b"
+  },
+  "name": "destinations",
+  "value": "Destinations"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114792c"
+  },
+  "name": "media_center",
+  "value": "Media Center"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114792d"
+  },
+  "name": "our_partners",
+  "value": "Our Partners"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114792e"
+  },
+  "name": "careers",
+  "value": "Careers"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114792f"
+  },
+  "name": "contact_us",
+  "value": "Contact Us"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147930"
+  },
+  "name": "our_story",
+  "value": "Our Story"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147931"
+  },
+  "name": "our_story_text_1",
+  "value": "Capital Hills Developments initiated its journey to broaden the real-estate market in 2014 as a public Construction Company in partnership with major companies in construction to build and revive endless Towers in Mall AlArab and Apartments in Sheikh Zayed with a total Investments of 100 million pounds."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147932"
+  },
+  "name": "our_story_text_2",
+  "value": "Capital Hills Developments has become an effective national contributor leading urban development in Egypt, participating in establishing unprecedented standards in the real estate development industry to position its real estate and tourism projects as the ultimate model for sophistication and quality of life."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147933"
+  },
+  "name": "see_details",
+  "value": "See Details →"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147934"
+  },
+  "name": "facts_and_figures",
+  "value": "Facts and Figures"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147935"
+  },
+  "name": "employees",
+  "value": "Employees"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147936"
+  },
+  "name": "destinations_count",
+  "value": "Destinations"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147937"
+  },
+  "name": "projects",
+  "value": "Projects"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147938"
+  },
+  "name": "clients",
+  "value": "Clients"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147939"
+  },
+  "name": "get_in_touch",
+  "value": "Get in Touch"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114793a"
+  },
+  "name": "name",
+  "value": "Name:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114793b"
+  },
+  "name": "phone",
+  "value": "Phone Number:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114793c"
+  },
+  "name": "email",
+  "value": "Email Address:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114793d"
+  },
+  "name": "inquiry_type",
+  "value": "Inquiry Type:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114793e"
+  },
+  "name": "message",
+  "value": "Your Message:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114793f"
+  },
+  "name": "destination",
+  "value": "Destination:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147940"
+  },
+  "name": "submit",
+  "value": "Submit"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147941"
+  },
+  "name": "privacy_policy",
+  "value": "Privacy Policy"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147942"
+  },
+  "name": "login",
+  "value": "Login"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147943"
+  },
+  "name": "register",
+  "value": "Register"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147944"
+  },
+  "name": "remember_me",
+  "value": "Remember me"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147945"
+  },
+  "name": "forgot_password",
+  "value": "Forgot Password?"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147946"
+  },
+  "name": "follow_us",
+  "value": "Follow us on:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147947"
+  },
+  "name": "all_rights_reserved",
+  "value": "© 2024 Capital Hills Developments - All rights reserved"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147948"
+  },
+  "name": "general",
+  "value": "General"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147949"
+  },
+  "name": "feedback",
+  "value": "Feedback"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114794a"
+  },
+  "name": "cairo_west",
+  "value": "Cairo West"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114794b"
+  },
+  "name": "cairo_east",
+  "value": "Cairo East"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114794c"
+  },
+  "name": "visit_us",
+  "value": "Visit Us"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114794d"
+  },
+  "name": "hq",
+  "value": "HQ"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114794e"
+  },
+  "name": "hq_west_arkan",
+  "value": "HQ West Arkan"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114794f"
+  },
+  "name": "hq_west_galleria",
+  "value": "HQ West Galleria"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147950"
+  },
+  "name": "new_cairo",
+  "value": "New Cairo"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147951"
+  },
+  "name": "sheikh_zayed",
+  "value": "Sheikh Zayed"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147952"
+  },
+  "name": "join_us",
+  "value": "JOIN US"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147953"
+  },
+  "name": "inquiry_type_general",
+  "value": "General"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147954"
+  },
+  "name": "inquiry_type_feedback",
+  "value": "Feedback"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147955"
+  },
+  "name": "inquiry_type_support",
+  "value": "Support"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147956"
+  },
+  "name": "why_work_with_us",
+  "value": "Why Work with Us?"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147957"
+  },
+  "name": "culture_description",
+  "value": "At Capital Hills Developments, we foster a culture of collaboration, innovation, and growth. Whether you are an experienced professional or just starting your career, you will find rewarding opportunities and challenges here."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147958"
+  },
+  "name": "current_job_openings",
+  "value": "Current Job Openings"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147959"
+  },
+  "name": "project_manager",
+  "value": "Project Manager"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114795a"
+  },
+  "name": "marketing_specialist",
+  "value": "Marketing Specialist"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114795b"
+  },
+  "name": "sales_consultant",
+  "value": "Sales Consultant"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114795c"
+  },
+  "name": "architect",
+  "value": "Architect"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114795d"
+  },
+  "name": "apply",
+  "value": "If you're interested in any of these positions, please use the form below to apply."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114795e"
+  },
+  "name": "join_us",
+  "value": "JOIN US"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114795f"
+  },
+  "name": "position",
+  "value": "Position"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147960"
+  },
+  "name": "latest_news",
+  "value": "Latest News"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147961"
+  },
+  "name": "gallery_title",
+  "value": "Gallery"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147962"
+  },
+  "name": "west_button",
+  "value": "WEST"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147963"
+  },
+  "name": "east_button",
+  "value": "EAST"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147964"
+  },
+  "name": "october-description",
+  "value": "Spanning across more than 48,000 feddans..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147965"
+  },
+  "name": "zayed-description",
+  "value": "Spanning across more than 48,000 feddans..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147966"
+  },
+  "name": "capital-description",
+  "value": "The fully-fledged city will cover an area of 170,000 feddans..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147967"
+  },
+  "name": "cairo-description",
+  "value": "The fully-fledged city will cover an area of 170,000 feddans..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147968"
+  },
+  "name": "mission-link",
+  "value": "Mission"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147969"
+  },
+  "name": "vision-link",
+  "value": "Vision"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114796a"
+  },
+  "name": "values-link",
+  "value": "Corporate Values"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114796b"
+  },
+  "name": "mission-heading",
+  "value": "Mission"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114796c"
+  },
+  "name": "mission-text",
+  "value": "Capital Hills is committed to creating a distinctive lifestyle for modern communities and tourism destinations in Egypt and overseas, providing employees with opportunities to contribute to the development and success of our communities."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114796d"
+  },
+  "name": "vision-heading",
+  "value": "Vision"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114796e"
+  },
+  "name": "vision-text",
+  "value": "Capital Hills aspires to become the customers' first choice in the real-estate and tourism industries nationally and globally, providing our clients a great quality of life."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114796f"
+  },
+  "name": "values-heading",
+  "value": "Corporate Values"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147970"
+  },
+  "name": "value-integrity",
+  "value": "Integrity."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147971"
+  },
+  "name": "value-credibility",
+  "value": "Credibility."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147972"
+  },
+  "name": "value-quality",
+  "value": "Quality."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147973"
+  },
+  "name": "value-customer",
+  "value": "Emphasis on the Customer."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147974"
+  },
+  "name": "value-approach",
+  "value": "Scientific Approach."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147975"
+  },
+  "name": "value-innovation",
+  "value": "Innovation."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147976"
+  },
+  "name": "value-teamwork",
+  "value": "Teamwork."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147977"
+  },
+  "name": "ceo-heading",
+  "value": "Message from the CEO"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147978"
+  },
+  "name": "ceo-message-text",
+  "value": "\"At Capital Hills Developments, we are committed to excellence and innovation. Our mission is to create spaces that enhance the lives of our clients and the communities we serve.\""
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147979"
+  },
+  "name": "read-more",
+  "value": "Read More"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114797a"
+  },
+  "name": "modal-ceo-heading",
+  "value": "Message from the CEO"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114797b"
+  },
+  "name": "modal-ceo-text1",
+  "value": "\"At Capital Hills Developments, we are committed to excellence and innovation. Our mission is to create spaces that enhance the lives of our clients and the communities we serve.\""
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114797c"
+  },
+  "name": "modal-ceo-text2",
+  "value": "Capital Hills Developments has become an effective national contributor leading urban development in Egypt, participating in establishing unprecedented standards in the real estate development industry..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114797d"
+  },
+  "name": "modal-ceo-image-alt",
+  "value": "CEO Image"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114797e"
+  },
+  "name": "zayed",
+  "value": "Sheikh Zayed, Arkan Plaza, Building 10, 5th Floor"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f114797f"
+  },
+  "name": "zayed2",
+  "value": "Sheikh Zayed, Galleria 40, North Tower, 3rd Floor"
+},
+{
+  "_id": {
+    "$oid": "66f1cfaec10b9012f1147980"
+  },
+  "name": "cairo",
+  "value": "New Cairo, Down Town, Building S1 A, 3rd Floor"
+}]

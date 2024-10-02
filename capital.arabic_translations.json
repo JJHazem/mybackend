@@ -1,0 +1,665 @@
+[{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c2"
+  },
+  "name": "title",
+  "value": "شركة كابيتال هيلز للتطوير العقاري - الصفحة الرئيسية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c3"
+  },
+  "name": "tel",
+  "value": "16794"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c4"
+  },
+  "name": "coming_soon",
+  "value": "الحدث قادم قريباً!"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c5"
+  },
+  "name": "new_capital_city",
+  "value": "العاصمة الإدارية الجديدة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c6"
+  },
+  "name": "sheikh_zayed_city",
+  "value": "مدينة الشيخ زايد"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c7"
+  },
+  "name": "new_cairo_city",
+  "value": "مدينة القاهرة الجديدة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c8"
+  },
+  "name": "october_city",
+  "value": "مدينة 6 أكتوبر"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478c9"
+  },
+  "name": "home",
+  "value": "الرئيسية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ca"
+  },
+  "name": "about_us",
+  "value": "معلومات عنا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478cb"
+  },
+  "name": "destinations",
+  "value": "الوجهات"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478cc"
+  },
+  "name": "media_center",
+  "value": "مركز الوسائط"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478cd"
+  },
+  "name": "our_partners",
+  "value": "شركائنا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ce"
+  },
+  "name": "careers",
+  "value": "الوظائف"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478cf"
+  },
+  "name": "contact_us",
+  "value": "اتصل بنا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d0"
+  },
+  "name": "our_story",
+  "value": "قصتنا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d1"
+  },
+  "name": "our_story_text_1",
+  "value": "بدأت شركة كابيتال هيلز للتطوير رحلتها لتوسيع سوق العقارات في عام 2014 كشركة مقاولات عامة بالشراكة مع شركات رائدة في البناء لبناء وإعادة إحياء أبراج لا تنتهي في مول العرب وشقق في الشيخ زايد بإجمالي استثمارات قدرها 100 مليون جنيه."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d2"
+  },
+  "name": "our_story_text_2",
+  "value": "أصبحت شركة كابيتال هيلز للتطوير مساهمًا وطنيًا فعالًا يقود التنمية العمرانية في مصر، حيث تشارك في وضع معايير غير مسبوقة في صناعة تطوير العقارات لتحديد مشاريعها العقارية والسياحية كنموذج نهائي للرقي وجودة الحياة."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d3"
+  },
+  "name": "see_details",
+  "value": "تفاصيل أكثر  →"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d4"
+  },
+  "name": "facts_and_figures",
+  "value": "حقائق وأرقام"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d5"
+  },
+  "name": "employees",
+  "value": "الموظفون"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d6"
+  },
+  "name": "destinations_count",
+  "value": "الوجهات"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d7"
+  },
+  "name": "projects",
+  "value": "المشاريع"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d8"
+  },
+  "name": "clients",
+  "value": "العملاء"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478d9"
+  },
+  "name": "get_in_touch",
+  "value": "تواصل معنا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478da"
+  },
+  "name": "name",
+  "value": "الاسم:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478db"
+  },
+  "name": "phone",
+  "value": "رقم الهاتف:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478dc"
+  },
+  "name": "email",
+  "value": "البريد الإلكتروني:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478dd"
+  },
+  "name": "inquiry_type",
+  "value": "نوع الاستفسار:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478de"
+  },
+  "name": "message",
+  "value": "رسالتك:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478df"
+  },
+  "name": "destination",
+  "value": "الوجهة:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e0"
+  },
+  "name": "submit",
+  "value": "إرسال"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e1"
+  },
+  "name": "privacy_policy",
+  "value": "سياسة الخصوصية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e2"
+  },
+  "name": "login",
+  "value": "تسجيل الدخول"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e3"
+  },
+  "name": "register",
+  "value": "إنشاء حساب"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e4"
+  },
+  "name": "remember_me",
+  "value": "تذكرني"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e5"
+  },
+  "name": "forgot_password",
+  "value": "نسيت كلمة المرور؟"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e6"
+  },
+  "name": "follow_us",
+  "value": "تابعنا على:"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e7"
+  },
+  "name": "all_rights_reserved",
+  "value": "© 2024 شركة كابيتال هيلز للتطوير العقاري - جميع الحقوق محفوظة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e8"
+  },
+  "name": "general",
+  "value": "عام"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478e9"
+  },
+  "name": "feedback",
+  "value": "ملاحظات"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ea"
+  },
+  "name": "cairo_west",
+  "value": "غرب القاهرة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478eb"
+  },
+  "name": "cairo_east",
+  "value": "شرق القاهرة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ec"
+  },
+  "name": "visit_us",
+  "value": "زورونا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ed"
+  },
+  "name": "hq",
+  "value": "المقر الرئيسي"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ee"
+  },
+  "name": "hq_west_arkan",
+  "value": "المقر الغربي أركان"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ef"
+  },
+  "name": "hq_west_galleria",
+  "value": "المقر الغربي جاليريا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f0"
+  },
+  "name": "new_cairo",
+  "value": "القاهرة الجديدة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f1"
+  },
+  "name": "sheikh_zayed",
+  "value": "الشيخ زايد"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f2"
+  },
+  "name": "join_us",
+  "value": "انضم إلينا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f3"
+  },
+  "name": "inquiry_type_general",
+  "value": "عام"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f4"
+  },
+  "name": "inquiry_type_feedback",
+  "value": "ملاحظات"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f5"
+  },
+  "name": "inquiry_type_support",
+  "value": "دعم"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f6"
+  },
+  "name": "why_work_with_us",
+  "value": "لماذا تعمل معنا؟"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f7"
+  },
+  "name": "culture_description",
+  "value": "في شركة كابيتال هيلز للتطوير، نعمل على تعزيز ثقافة التعاون والابتكار والنمو. سواء كنت محترفًا ذا خبرة أو بدأت للتو حياتك المهنية، ستجد هنا فرصًا وتحديات مجزية."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f8"
+  },
+  "name": "current_job_openings",
+  "value": "فرص العمل الحالية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478f9"
+  },
+  "name": "project_manager",
+  "value": "مدير مشروع"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478fa"
+  },
+  "name": "marketing_specialist",
+  "value": "أخصائي تسويق"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478fb"
+  },
+  "name": "sales_consultant",
+  "value": "استشاري مبيعات"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478fc"
+  },
+  "name": "architect",
+  "value": "مهندس معماري"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478fd"
+  },
+  "name": "apply",
+  "value": "إذا كنت مهتمًا بأي من هذه المناصب، يرجى استخدام النموذج أدناه للتقديم."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478fe"
+  },
+  "name": "join_us",
+  "value": "انضم إلينا"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f11478ff"
+  },
+  "name": "position",
+  "value": "المسمى الوظيفي"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147900"
+  },
+  "name": "latest_news",
+  "value": "آخر الأخبار"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147901"
+  },
+  "name": "gallery_title",
+  "value": "معرض الصور"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147902"
+  },
+  "name": "west-button",
+  "value": "غرب"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147903"
+  },
+  "name": "east-button",
+  "value": "شرق"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147904"
+  },
+  "name": "october-description",
+  "value": "تغطي مساحة تزيد عن 48,000 فدان..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147905"
+  },
+  "name": "zayed-description",
+  "value": "تغطي مساحة تزيد عن 48,000 فدان..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147906"
+  },
+  "name": "capital-description",
+  "value": "ستغطي المدينة المكتملة مساحة قدرها 170,000 فدان..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147907"
+  },
+  "name": "cairo-description",
+  "value": "ستغطي المدينة المكتملة مساحة قدرها 170,000 فدان..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147908"
+  },
+  "name": "mission-link",
+  "value": "المهمة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147909"
+  },
+  "name": "vision-link",
+  "value": "الرؤية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114790a"
+  },
+  "name": "values-link",
+  "value": "القيم المؤسسية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114790b"
+  },
+  "name": "mission-heading",
+  "value": "المهمة"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114790c"
+  },
+  "name": "mission-text",
+  "value": "تلتزم كابيتال هيلز بخلق نمط حياة متميز للمجتمعات الحديثة وجهات السياحة في مصر وخارجها، وتوفير الفرص للموظفين للمساهمة في تطوير ونجاح مجتمعاتنا."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114790d"
+  },
+  "name": "vision-heading",
+  "value": "الرؤية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114790e"
+  },
+  "name": "vision-text",
+  "value": "تطمح كابيتال هيلز أن تصبح الخيار الأول للعملاء في صناعة العقارات والسياحة على المستوى الوطني والعالمي، وتوفير جودة حياة رائعة لعملائنا."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114790f"
+  },
+  "name": "values-heading",
+  "value": "القيم المؤسسية"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147910"
+  },
+  "name": "value-integrity",
+  "value": "النزاهة."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147911"
+  },
+  "name": "value-credibility",
+  "value": "المصداقية."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147912"
+  },
+  "name": "value-quality",
+  "value": "الجودة."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147913"
+  },
+  "name": "value-customer",
+  "value": "التركيز على العميل."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147914"
+  },
+  "name": "value-approach",
+  "value": "النهج العلمي."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147915"
+  },
+  "name": "value-innovation",
+  "value": "الابتكار."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147916"
+  },
+  "name": "value-teamwork",
+  "value": "العمل الجماعي."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147917"
+  },
+  "name": "ceo-heading",
+  "value": "رسالة من المدير التنفيذي"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147918"
+  },
+  "name": "ceo-message-text",
+  "value": "\"في كابيتال هيلز للتطوير، نحن ملتزمون بالتميز والابتكار. مهمتنا هي خلق مساحات تعزز حياة عملائنا والمجتمعات التي نخدمها.\""
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147919"
+  },
+  "name": "read-more",
+  "value": "اقرأ المزيد"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114791a"
+  },
+  "name": "modal-ceo-heading",
+  "value": "رسالة من المدير التنفيذي"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114791b"
+  },
+  "name": "modal-ceo-text1",
+  "value": "\"في كابيتال هيلز للتطوير، نحن ملتزمون بالتميز والابتكار. مهمتنا هي خلق مساحات تعزز حياة عملائنا والمجتمعات التي نخدمها.\""
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114791c"
+  },
+  "name": "modal-ceo-text2",
+  "value": "أصبحت كابيتال هيلز للتطوير مساهمًا وطنيًا فعالًا يقود التنمية الحضرية في مصر، وتشارك في وضع معايير غير مسبوقة في صناعة تطوير العقارات..."
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114791d"
+  },
+  "name": "modal-ceo-image-alt",
+  "value": "صورة المدير التنفيذي"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114791e"
+  },
+  "name": "zayed",
+  "value": "الشيخ زايد، أركان بلازا، المبنى 10، الطابق الخامس"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f114791f"
+  },
+  "name": "zayed2",
+  "value": "الشيخ زايد، جاليريا 40، البرج الشمالي، الطابق الثالث"
+},
+{
+  "_id": {
+    "$oid": "66f1cfa2c10b9012f1147920"
+  },
+  "name": "cairo",
+  "value": "القاهرة الجديدة، وسط المدينة، المبنى S1 A، الطابق الثالث"
+}]
