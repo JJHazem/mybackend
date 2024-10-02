@@ -10,7 +10,6 @@ const port = process.env.PORT || 3000;
 
 // Initialize app and middleware
 const app = express();
-const cors = require('cors');
 app.use(cors({
     origin: 'https://capitalhillsdevelopments.com',  // Allow the frontend domain
     methods: 'GET,POST'
