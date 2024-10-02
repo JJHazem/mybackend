@@ -10,8 +10,9 @@ const port = process.env.PORT || 3000;
 
 // Initialize app and middleware
 const app = express();
-app.use(bodyParser.json());
-app.use(cors({ origin: 'https://capitalhillsdevelopments.com/' })); // Set your frontend domain
+app.use(bodyParser.json());app.use(cors({
+    origin: '*' // Allow all origins
+}));// Set your frontend domain
 app.use(helmet()); 
 
 
