@@ -2,9 +2,9 @@
 
 # Define your file-collection mapping
 declare -A files
-files["capital.units.json"]="units"
-files["capital.english_translations.json"]="english_translations"
-files["capital.arabic_translations.json"]="arabic_translations"
+files["/home/capitalhills/mybackend/capital.units.json"]="units"
+files["/home/capitalhills/mybackend/capital.english_translations.json"]="english_translations"
+files["/home/capitalhills/mybackend/capital.arabic_translations.json"]="arabic_translations"
 
 # Loop through the files and import them
 for file in "${!files[@]}"; do
