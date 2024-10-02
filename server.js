@@ -19,11 +19,10 @@ app.use(cors({
 app.use(helmet()); 
 const options = {
     key: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem'), // Update with the correct path
-    cert: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt') // Update with the correct path
+    cert: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt'),
+    ca: fs.readFileSync('/home/capitalhills/mybackend/gd_bundle-g2-g1.crt') // Update with the correct path
 };
-https.createServer(options, app).listen(port, () => {
-    console.log(`Server is running on https://localhost:${port}`);
-});
+
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
     name: { type: String, required: true },
