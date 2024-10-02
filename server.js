@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const https = require('https');
+const fs = require('fs');
 const port = process.env.PORT || 3000;
 
 // Initialize app and middleware
@@ -15,8 +17,13 @@ app.use(cors({
     methods: 'GET,POST'
 }));
 app.use(helmet()); 
-
-
+const options = {
+    key: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem'), // Update with the correct path
+    cert: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt') // Update with the correct path
+};
+https.createServer(options, app).listen(port, () => {
+    console.log(`Server is running on https://localhost:${port}`);
+});
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
     name: { type: String, required: true },
