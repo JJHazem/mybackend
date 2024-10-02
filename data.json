@@ -1,0 +1,918 @@
+[
+    {
+        "_id": "new-cairo",
+        "name": "New Cairo",
+        "projects": [
+            {
+                "name": "EAST POINT 1",
+                "overview": "East Point 1 is a strategically located development in the 1st district of New Cairo, near As-Salam International Hospital in the 5th Settlement. Spanning 2,400 square meters, this project, designed by IEC, features a G+3 structure offering commercial spaces, administrative offices, and clinics. With its proximity to a major healthcare facility, East Point 1 is ideal for businesses and medical services, providing easy access to a growing community. The project blends modern architecture with functional design, ensuring a professional and inviting environment for tenants and visitors. Its prime location in one of Cairo’s most sought-after districts makes it an attractive destination for commercial and administrative ventures.",
+                "masterplanImage": "eastpointmaster.png",
+                "imageUrl": "interior point11 FINAL (1)_Page_04.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "4.RGB_color.jpg",
+                    "2.RGB_color.jpg",
+                    "3.RGB_color.jpg",
+                    "7.RGB_color.jpg"
+                ],
+                "constructionVideo": "East Point 1 Mall.mp4",
+                "brochure": "3.RGB_color.jpg",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "LA COLINA EAST",
+                "overview": "Lacolina East is a comprehensive mixed-use development spanning 34 feddans in the East View Zone of Beit Al-Watan, New Cairo. Designed by HAFEZ, this project features a G+4 structure, offering a combination of residential units, commercial spaces, administrative offices, and clinics. The development aims to provide a modern and self-sustaining community, with residential options supported by essential services and commercial facilities. Its strategic location in Beit Al-Watan, a highly sought-after area of New Cairo, ensures that Lacolina offers both tranquility and connectivity. The project is designed to cater to the needs of families and businesses alike, blending comfort, functionality, and contemporary living with high-end amenities.",
+                "masterplanImage": "lacolina-east.png",
+                "imageUrl": "pool shot 01.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "shot 01.jpg",
+                    "shot 02.jpg",
+                    "landscape shot 03.png",
+                    "landscape shot 02 - n .png"
+                ],
+                "constructionVideo": "",
+                "brochure": "CAPITAL HILLS CODED LAYOUT01.pdf",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "residential",
+                        "rooms": 3,
+                        "area": 350,
+                        "image": "Flaying App..jpg",
+                        "modal1": "garden day.jpg",
+                        "modal2": "street.jpg",
+                        "modal3": "pool shot.jpg",
+                        "name": "Luxury Residential",
+                        "details": "A spacious Residential with a garden and swimming pool."
+                    },
+                    {
+                        "id": 2,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 3,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 4,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": "new-capital",
+        "name": "New Capital",
+        "projects": [
+            {
+                "name": "POINT9",
+                "overview": "POINT9 Located in the heart of the New Administrative Capital, the MU1/14 project spans 2,400 square meters in the bustling Downtown district. This mixed-use development, designed by ARCPLAN, offers a strategic blend of commercial spaces, administrative offices, and clinics. The project features a G+8 structure, providing a modern and functional environment for businesses, health services, and corporate offices. With its prime location in one of Egypt’s fastest-growing urban areas, the MU1/14 development is set to become a key hub for commerce and administration in the New Capital.",
+                "masterplanImage": "masterplan.jpg",
+                "imageUrl": "04-CAPITAL HILLS NIGHT 2.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "04-CAPITAL HILLS NIGHT 2.jpg",
+                    "03-CAPITAL HILLS NIGHT.jpg",
+                    "02-CAPITAL HILLS  DAY  2.jpg",
+                    "01- CAPITAL HILLS  DAY  .jpg"
+                ],
+                "constructionVideo": "",
+                "brochure": "04-CAPITAL HILLS NIGHT 2.pdf",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "POINT11",
+                "overview": "The POINT11 project, located in the dynamic MU2 district of the New Administrative Capital, covers an expansive area of 2,400 square meters. Designed by ARKAN, this high-rise development consists of commercial spaces, administrative offices, and clinics, housed in a G+10 structure. The project offers a well-integrated environment for businesses, healthcare facilities, and administrative functions, catering to a diverse range of tenants. Positioned in the rapidly developing New Capital, MU2/45 provides excellent accessibility and visibility, making it a prime choice for companies and service providers looking to establish themselves in this emerging economic center.",
+                "masterplanImage": "masterplan.jpg",
+                "imageUrl": "WhatsApp Image 2021-04-28 at 12.42.52 PM (1).jpeg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "WhatsApp Image 2021-04-28 at 12.42.52 PM (1).jpeg",
+                    "WhatsApp Image 2021-04-28 at 12.42.51 PM.jpeg",
+                    "interior point11 FINAL (1)_Page_01.jpg",
+                    "interior point11 FINAL (1)_Page_05.jpg"
+                ],
+                "constructionVideo": "",
+                "brochure": "interior point11 FINAL (1).pdf",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "PARK POINT",
+                "overview": "Park Point, located in the prestigious MU5/14 district of the New Administrative Capital, is a large-scale mixed-use development spanning 9,100 square meters. Designed by DMA, this G+14 structure offers a unique combination of commercial spaces, administrative offices, and luxurious hotel apartments. The project is designed to cater to a diverse clientele, offering top-tier amenities for businesses, corporate offices, and hospitality services. With its high-rise design and premium location, Park Point stands as a landmark development, providing modern facilities and exceptional convenience for professionals and visitors alike. Its strategic placement within the rapidly evolving New Capital enhances its appeal, making it a key destination for commerce, business, and upscale living.",
+                "masterplanImage": "masterplan.jpg",
+                "imageUrl": "CAMERA 07 - UPDATE02.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "CAMERA 07 - UPDATE02.jpg",
+                    "CAMERA 06 - UPDATED.jpg",
+                    "CAMERA 05 - UPDATED.jpg",
+                    "CAMERA 02 - UPDATED (2).jpg"
+                ],
+                "constructionVideo": "ParkPoint.mp4",
+                "brochure": "Download Brochure content for Project A3",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "hotel apartments",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "CAMERA 05 - UPDATED.jpg",
+                        "modal1": "hotel1.jpg",
+                        "modal2": "hotel2.jpg",
+                        "modal3": "hotel3.jpg",
+                        "name": "Modern Hotel Apartments",
+                        "details": "A modern hotel apartments with city view."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": "october-city",
+        "name": "6th of October City",
+        "projects": [
+            {
+                "name": "PARK YARD 1",
+                "overview": "Park Yard 1 is a major mixed-use development located at the bustling Al-Hossary Square in 6th of October, Giza. Spanning 12,000 square meters, this G+3 project, designed collaboratively by RAY and IEC, offers a range of commercial spaces, administrative offices, and clinics. Situated in one of the most vibrant areas of 6th of October, Park Yard 1 benefits from high visibility and accessibility, making it an ideal location for businesses and medical services. The development’s modern architecture and well-planned layout are designed to meet the diverse needs of tenants and visitors, providing a professional and dynamic environment. With its prime location and comprehensive facilities, Park Yard 1 stands as a key hub for commerce and administration in the area.",
+                "masterplanImage": "masterplan.jpg",
+                "imageUrl": "PY Shots_Page_1.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "PY Shots_Page_1.jpg",
+                    "07.jpg",
+                    "CAMERA 01 - FINAL B.jpg",
+                    "09.jpg"
+                ],
+                "constructionVideo": "ParkYard AC_no number.mp4",
+                "brochure": "03.jpg",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "PARK YARD 2",
+                "overview": "Park Yard 2 is an expansive mixed-use development covering 24,000 square meters, located in the prominent Al-Hossary Square in 6th of October, Giza. Designed by ADC, this G+2 project offers a versatile mix of commercial spaces, administrative offices, and clinics. Building on the success of its predecessor, Park Yard 1, this development provides additional space for businesses, healthcare services, and corporate offices in one of 6th of October’s most central and well-known areas. The project’s low-rise design ensures ease of access, while its modern facilities are tailored to meet the needs of both professionals and visitors. With its prime location and ample commercial opportunities, Park Yard 2 is set to become a major commercial and administrative landmark in 6th of October.",
+                "masterplanImage": "park yard2-maaster.png",
+                "imageUrl": "parkyard2.png",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "S13.jpg",
+                    "S9.jpg",
+                    "IN01.effectsResult.jpg",
+                    "S16.jpg"
+                ],
+                "constructionVideo": "",
+                "brochure": "3d py2.pdf",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "CAPITAL TOWER 1",
+                "overview": "Capital Tower 1 is a prominent mixed-use development situated along the Gamal Abdelnasser Axis, near Mall of Arabia in 6th of October, Giza. Covering 3,250 square meters, this G+6 tower, designed by ADC, features a blend of commercial spaces, administrative offices, and clinics. With its strategic location near one of the largest shopping destinations in the area, Capital Tower 1 offers excellent visibility and access to a thriving commercial hub. The modern G+6 structure is designed to accommodate a variety of businesses and healthcare services, providing a professional and efficient environment. Its proximity to major landmarks and transportation routes makes Capital Tower 1 a key destination for commerce and administration in 6th of October.",
+                "masterplanImage": "Capital Towers.jpg",
+                "imageUrl": "Binder3_Page_11.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "Binder3_Page_05.jpg",
+                    "2 (1).jpg",
+                    "4.jpg",
+                    "3.jpg"
+                ],
+                "constructionVideo": "Capital Tower video final.mp4",
+                "brochure": "5 1-0000.png",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "CAPITAL TOWER 2",
+                "overview": "Capital Tower 2 is a mixed-use development strategically located on the Gamal Abdelnasser Axis, near Mall of Arabia in 6th of October, Giza. Covering 4,000 square meters, this G+6 building, designed by IEC, offers a versatile mix of commercial spaces, administrative offices, and clinics. As an extension of the successful Capital Tower 1, this development provides additional space for businesses and healthcare services in one of 6th of October's busiest areas. Its modern design and functional layout ensure a professional atmosphere, catering to the needs of various industries. The prime location near a major commercial center enhances its accessibility and appeal, making Capital Tower 2 a prime destination for companies and service providers in the area.",
+                "masterplanImage": "Capital Towers.jpg",
+                "imageUrl": "Binder3_Page_10.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "Binder3_Page_05.jpg",
+                    "2 (1).jpg",
+                    "4.jpg",
+                    "3.jpg"
+                ],
+                "constructionVideo": "Capital Tower video final.mp4",
+                "brochure": "5 1-0000.png",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "CAPITAL TOWER 3",
+                "overview": "Capital Tower 3 is a mixed-use G+6 development located along the prominent Gamal Abdelnasser Axis in 6th of October, Giza. Spanning 4,000 square meters, this project, designed by IEC, offers a range of commercial spaces, administrative offices, and clinics. Building on the success of Capital Towers 1 and 2, Capital Tower 3 provides additional modern facilities for businesses and healthcare services, ensuring a professional and efficient working environment. Positioned in a key commercial area near Mall of Arabia, the project enjoys excellent connectivity and visibility, making it an attractive destination for enterprises and service providers looking to establish a presence in the thriving 6th of October district.",
+                "masterplanImage": "Capital Towers.jpg",
+                "imageUrl": "Binder3_Page_12.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "Binder3_Page_05.jpg",
+                    "2 (1).jpg",
+                    "4.jpg",
+                    "3.jpg"
+                ],
+                "constructionVideo": "Capital Tower video final.mp4",
+                "brochure": "5 1-0000.png",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "CAPITAL TOWER 4",
+                "overview": "Capital Tower 4 is a modern mixed-use development situated along the bustling Gamal Abdelnasser Axis in 6th of October, Giza. Covering 3,500 square meters, this G+6 project, designed by IEC, features a diverse mix of commercial spaces, administrative offices, and clinics. This development complements the existing Capital Towers, providing an additional venue for businesses and healthcare providers in a prime location. With its contemporary design and strategic positioning near key commercial centers, Capital Tower 4 offers excellent visibility and accessibility. The project is designed to foster a professional atmosphere, making it an ideal choice for companies and services looking to thrive in the vibrant 6th of October area.",
+                "masterplanImage": "Capital Towers.jpg",
+                "imageUrl": "Binder3_Page_02.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "Binder3_Page_05.jpg",
+                    "2 (1).jpg",
+                    "4.jpg",
+                    "3.jpg"
+                ],
+                "constructionVideo": "Capital Tower video final.mp4",
+                "brochure": "5 1-0000.png",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "CAPITAL TOWER 5",
+                "overview": "Capital Tower 5 is an expansive mixed-use development located on the bustling Gamal Abdelnasser Axis in 6th of October, Giza. Spanning 5,200 square meters, this G+9 project, designed by IEC, offers a unique combination of commercial spaces, administrative offices, clinics, and hotel apartments. The tower’s modern design caters to a diverse range of tenants, providing an ideal environment for businesses and healthcare services alongside hospitality options. Its strategic location near major shopping and entertainment hubs enhances its appeal, offering excellent visibility and accessibility. Capital Tower 5 stands as a key landmark in the area, promising a dynamic and integrated experience for residents, professionals, and visitors alike.",
+                "masterplanImage": "Capital Towers.jpg",
+                "imageUrl": "Binder3_Page_09.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "Binder3_Page_05.jpg",
+                    "2 (1).jpg",
+                    "4.jpg",
+                    "3.jpg"
+                ],
+                "constructionVideo": "Capital Tower video final.mp4",
+                "brochure": "5 1-0000.png",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    },
+                    {
+                        "id": 4,
+                        "type": "hotel apartments",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "CAMERA 05 - UPDATED.jpg",
+                        "modal1": "hotel1.jpg",
+                        "modal2": "hotel2.jpg",
+                        "modal3": "hotel3.jpg",
+                        "name": "Modern Hotel Apartments",
+                        "details": "A modern hotel apartments with city view."
+                    }
+                ]
+            },
+            {
+                "name": "WIN PLAZA",
+                "overview": "Win Plaza is an impressive mixed-use development situated in the Italian District of Hadayak October, Giza, covering an expansive area of 17,700 square meters. Designed by IEC, this G+2 project features a blend of commercial spaces, administrative offices, and clinics. With its modern architectural design, Win Plaza aims to create a vibrant and functional environment that caters to a diverse range of tenants. The project is strategically located to provide excellent accessibility and visibility, making it an ideal destination for businesses and healthcare services. Win Plaza stands to enhance the commercial landscape of Hadayak October, fostering a dynamic community for professionals and visitors alike.",
+                "masterplanImage": "TOP.RGB_color.0099.jpg",
+                "imageUrl": "winplaza.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "1.jpg",
+                    "7.jpg",
+                    "5.jpg",
+                    "3.jpg"
+                ],
+                "constructionVideo": "",
+                "brochure": "6.jpg",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 2,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 3,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": "sheikh-zayed",
+        "name": "Sheikh Zayed City",
+        "projects": [
+            {
+                "name": "LA COLINA",
+                "overview": "La Colina is a large-scale mixed-use development situated in Old Zayed, Giza, covering 19 feddans. Designed by YBA and HAFEZ, this G+5 project offers a harmonious blend of residential units, commercial spaces, administrative offices, and clinics. This development aims to create a self-sustaining community, providing residents with convenient access to essential services and amenities. With its thoughtful design and modern architecture, La Colina fosters a vibrant lifestyle, catering to the diverse needs of its inhabitants. Its strategic location in Old Zayed enhances connectivity and accessibility, making La Colina an attractive destination for both living and business opportunities in the region.",
+                "masterplanImage": "lacolina-master.png",
+                "imageUrl": "lacolina.jpg",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "CAM 01.effectsResult-1.jpg",
+                    "CAM 03.effectsResult-1.jpg",
+                    "CAM 04 - Night Terrace.effectsResult.jpg",
+                    "20231212-Top Roof Shots -1.png"
+                ],
+                "constructionVideo": "",
+                "brochure": "LA COLINA Brochure.pdf",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "residential",
+                        "rooms": 2,
+                        "area": 120,
+                        "image": "Flaying App..jpg",
+                        "modal1": "garden day.jpg",
+                        "modal2": "street.jpg",
+                        "modal3": "pool shot.jpg",
+                        "name": "Luxury Residential",
+                        "details": "A spacious Residential TYPE 1 with a garden and two bedrooms."
+                    },
+                    {
+                        "id": 2,
+                        "type": "residential",
+                        "rooms": 3,
+                        "area": 150,
+                        "image": "Private Garden.png",
+                        "modal1": "CAM 03.effectsResult-1.jpg",
+                        "modal2": "CAM 06 - REV 2.effectsResult.jpg",
+                        "modal3": "CAM 01.effectsResult-1.jpg",
+                        "name": "Luxury Residential",
+                        "details": "A spacious Residential TYPE 2 with a garden and three bedrooms."
+                    },
+                    {
+                        "id": 3,
+                        "type": "residential",
+                        "rooms": 3,
+                        "area": 200,
+                        "image": "CAM 02.effectsResult.jpg",
+                        "modal1": "Roof 01.png",
+                        "modal2": "20231212-Top Roof Shots -2.png",
+                        "modal3": "CAM 04 - Night Terrace.effectsResult.jpg",
+                        "name": "Luxury Residential",
+                        "details": "A spacious Residential TYPE 3 with a garden, three bedrooms, and a terrace."
+                    },
+                    {
+                        "id": 4,
+                        "type": "commercial",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "commercial.webp",
+                        "modal1": "interior point11 FINAL (1)_Page_03.jpg",
+                        "modal2": "interior point11 FINAL (1)_Page_04.jpg",
+                        "modal3": "interior point11 FINAL (1)_Page_02.jpg",
+                        "name": "Modern Commercial",
+                        "details": "A spacious commercial."
+                    },
+                    {
+                        "id": 5,
+                        "type": "admin",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_09.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_10.jpg",
+                        "modal2": "admin22.jpg",
+                        "modal3": "admin23.jpg",
+                        "name": "Modern Admin",
+                        "details": "A modern admin with city view."
+                    },
+                    {
+                        "id": 6,
+                        "type": "clinics",
+                        "rooms": 0,
+                        "area": 0,
+                        "image": "interior point11 FINAL (1)_Page_12.jpg",
+                        "modal1": "interior point11 FINAL (1)_Page_11.jpg",
+                        "modal2": "clinic23.jpg",
+                        "modal3": "clinic22.jpg",
+                        "name": "Modern Clinics",
+                        "details": "A modern clinic with city view."
+                    }
+                ]
+            },
+            {
+                "name": "CAPITAL GREEN",
+                "overview": "Capital Green is a charming residential development located in Old Zayed, Giza, encompassing 5 feddans of beautifully designed living spaces. This G+1 project, developed by IEC, offers a serene environment that emphasizes community living and green spaces. With a focus on quality and comfort, Capital Green features thoughtfully designed residential units that cater to families and individuals seeking a tranquil lifestyle. The development’s layout promotes connectivity among residents while providing access to essential amenities. Its prime location in Old Zayed offers a peaceful retreat within easy reach of urban conveniences, making Capital Green an ideal choice for those looking to enjoy modern living in a picturesque setting.",
+                "masterplanImage": "masterplan.jpg",
+                "imageUrl": "capitalgreen.png",
+                "amenitiesImages": [
+                    "parking.jpeg",
+                    "fiber.jpeg",
+                    "bike.jpeg"
+                ],
+                "constructionImages": [
+                    "green1.png",
+                    "green2.png",
+                    "green3.png",
+                    "green4.png"
+                ],
+                "constructionVideo": "",
+                "brochure": "3d shots.pdf",
+                "units": [
+                    {
+                        "id": 1,
+                        "type": "residential",
+                        "rooms": 3,
+                        "area": 350,
+                        "image": "Flaying App..jpg",
+                        "modal1": "garden day.jpg",
+                        "modal2": "street.jpg",
+                        "modal3": "pool shot.jpg",
+                        "name": "Luxury Residential",
+                        "details": "A spacious Residential with a garden and swimming pool."
+                    }
+                ]
+            }
+        ]
+    }
+
+]
