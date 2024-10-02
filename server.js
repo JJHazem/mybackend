@@ -189,6 +189,10 @@ app.post('/users/login', async (req, res) => {
         res.status(500).json({ error: 'Error logging in' });
     }
 });
+https.createServer(options, app).listen(port, () => {
+    console.log(`Server is running on https://37.148.206.181:${port}`);
+});
+
 // Connect to MongoDB
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
