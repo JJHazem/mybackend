@@ -1,14 +1,18 @@
+require('dotenv').config();  // Load environment variables
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3000;
+const helmet = require('helmet');
+const port = process.env.PORT || 3000;
+
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ origin: 'https://capitalhillsdevelopments.com/' })); // Set your frontend domain
+app.use(helmet()); 
 
 
 // Define schemas for English and Arabic translations
@@ -177,17 +181,19 @@ app.post('/users/login', async (req, res) => {
     }
 });
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/capital', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
     console.log('Connected to MongoDB');
-    // Start the server after successful connection
-    app.listen(port, '37.148.206.181', () => {
-        console.log(`Server is running on http://your-vps-ip:${port}`);
+    app.listen(port, () => {
+        console.log(`Server is running on http://37.148.206.181:${port}`);
     });
 }).catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
-
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Internal Server Error' });
+});
 
