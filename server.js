@@ -181,17 +181,20 @@ app.post('/users/login', async (req, res) => {
     }
 });
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => {
+})
+.then(() => {
     console.log('Connected to MongoDB');
-    app.listen(port, () => {
+    app.listen(port, '37.148.206.181', () => {
         console.log(`Server is running on http://37.148.206.181:${port}`);
     });
-}).catch((error) => {
+})
+.catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
+
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Internal Server Error' });
