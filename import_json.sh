@@ -9,5 +9,5 @@ files["capital.arabic_translations.json"]="arabic_translations"
 # Loop through the files and import them
 for file in "${!files[@]}"; do
     collection=${files[$file]}
-    mongoimport --uri "mongodb://localhost:27017/capital_hills" --collection "$collection" --file "$file" --jsonArray
+    mongoimport --uri "mongodb://localhost:27017/capital" --collection "$collection" --file "$file" --jsonArray
 done
