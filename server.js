@@ -191,9 +191,6 @@ app.use((req, res, next) => {
     }
     res.redirect(`https://${req.headers.host}${req.url}`);
 });
-https.createServer(options, app).listen(port, () => {
-    console.log(`Server is running on https://37.148.206.181:${port}`);
-});
 
 // Connect to MongoDB
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
