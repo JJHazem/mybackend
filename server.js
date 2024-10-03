@@ -1,13 +1,9 @@
 require('dotenv').config();  // Load environment variables
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const https = require('https');
-const fs = require('fs');
 const port = process.env.PORT || 3000;
 
 // Initialize app and middleware
