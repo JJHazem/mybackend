@@ -5,18 +5,11 @@ const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 3000;
-const https = require('https');
-const fs = require('fs');
+
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-const privateKey = fs.readFileSync('/home/capitalhills/mybackend/private.key', 'utf8');
-const certificate = fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt', 'utf8');
-const ca = fs.readFileSync('/home/capitalhills/mybackend/gd_bundle-g2-g1.crt', 'utf8');
-
-// Or, if you combined the certificate and intermediate files:
-const credentials = { key: privateKey, cert: certificate, ca: ca };
 
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
@@ -194,8 +187,6 @@ app.post('/users/login', async (req, res) => {
 });
 
 // Start the server
-const httpsServer = https.createServer(credentials, app);
-
-httpsServer.listen(3000, () => {
-    console.log('HTTPS Server running on https://37.148.206.181:3000');
+app.listen(3000, () => {
+    console.log('Server is running on https://37.148.206.181:3000');
 });
