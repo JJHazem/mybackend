@@ -21,7 +21,7 @@ app.use(helmet()); // Secure headers
 app.use(bodyParser.json()); // Handle JSON requests
 
 // MongoDB connection URI (adjust for your VPS IP)
-const mongoURI = 'mongodb://your_vps_ip:27017/capital';
+const mongoURI = 'mongodb://37.148.206.181:27017/capital';
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
@@ -30,8 +30,8 @@ mongoose.connect(mongoURI, {
 })
 .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(port, 'your_vps_ip', () => {
-        console.log(`Server is running on https://your_vps_ip:${port}`);
+    app.listen(port, '37.148.206.181', () => {
+        console.log(`Server is running on https://37.148.206.181:${port}`);
     });
 })
 .catch((error) => {
