@@ -1,18 +1,25 @@
-require('dotenv').config();  // Load environment variables
+require('dotenv').config(); // Load environment variables
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const https = require('https'); // Import https module
+const fs = require('fs'); // Import fs module
 const port = process.env.PORT || 3000;
+
+// Load SSL certificate and key
+const options = {
+    key: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem'), // Path to your private key file
+    cert: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt'), // Path to your certificate file
+    ca: fs.readFileSync('/home/capitalhills/mybackend/gd_bundle-g2-g1.crt') // Path to your intermediate certificate file (optional but recommended)
+};
 
 // Initialize app and middleware
 const app = express();
 
 // Allow CORS from your frontend
 app.use(cors());
-
-
 app.use(helmet()); // Secure headers
 app.use(bodyParser.json()); // Handle JSON requests
 
@@ -26,14 +33,14 @@ mongoose.connect(mongoURI, {
 })
 .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(port, '37.148.206.181', () => {
-        console.log(`Server is running on https://37.148.206.181:${port}`);
+    // Start the HTTPS server
+    https.createServer(options, app).listen(port, () => {
+        console.log(`Server is running on https://your-vps-ip:${port}`);
     });
 })
 .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
-
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
     name: { type: String, required: true },
