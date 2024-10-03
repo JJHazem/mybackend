@@ -1,42 +1,22 @@
-require('dotenv').config(); // Load environment variables
 const express = require('express');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const helmet = require('helmet');
-const https = require('https'); // Import https module
-const fs = require('fs'); // Import fs module
-const port = process.env.PORT || 3000;
-
-// Load SSL certificate and key
-const options = {
-    key: fs.readFileSync('/etc/ssl/private/68bb5f6b0e28d4ec.pem'), // Path to your .pem file
-    cert: fs.readFileSync('/etc/ssl/certs/68bb5f6b0e28d4ec.crt') // Path to your certificate file
-};
-
+const port = 3000;
 // Initialize app and middleware
 const app = express();
-
-// Allow CORS from your frontend
+app.use(bodyParser.json());
 app.use(cors());
-app.use(helmet()); // Secure headers
-app.use(bodyParser.json()); // Handle JSON requests
+// Connect to MongoDB (replace with your actual MongoDB URI)
+mongoose.connect('mongodb://37.148.206.181:27017/capital', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
-// MongoDB connection URI (adjust for your VPS IP)
-const mongoURI = 'mongodb://37.148.206.181:27017/capital';
-
-// Connect to MongoDB without deprecated options
-mongoose.connect(mongoURI)
-    .then(() => {
-        console.log('Connected to MongoDB');
-        // Start the HTTPS server
-        https.createServer(options, app).listen(port, () => {
-            console.log(`Server is running on https://37.148.206.181:${port}`);
-        });
-    })
-    .catch((error) => {
-        console.error('Error connecting to MongoDB:', error);
-    });
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -78,11 +58,12 @@ app.get('/translations/:lang', async (req, res) => {
     }
 });
 
-// Unit schema and model
+
+// Define your schema and model for the 'units' collection
 const unitSchema = new mongoose.Schema({
-    _id: { type: String, required: true },
+    _id: { type: String, required: true },  // The city ID (e.g., 'new-cairo')
     name: { type: String, required: true },
-    image: { type: String, required: true },
+    image: { type: String, required: true }, // City name (e.g., 'New Cairo')
     projects: [
         {
             name: { type: String, required: true },
@@ -95,9 +76,9 @@ const unitSchema = new mongoose.Schema({
                     rooms: { type: Number, required: true },
                     area: { type: Number, required: true },
                     image: { type: String, required: true },
-                    modal1: { type: String, required: true },
-                    modal2: { type: String, required: true },
-                    modal3: { type: String, required: true },
+                    modal1:{ type: String, required: true },
+                    modal2:{ type: String, required: true },
+                    modal3:{ type: String, required: true },
                     name: { type: String, required: true },
                     details: { type: String, required: true }
                 }
@@ -109,46 +90,50 @@ const unitSchema = new mongoose.Schema({
     ]
 });
 
-const Unit = mongoose.model('Unit', unitSchema);
+
+const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
 
 // Route to get data for a specific project within a city
 app.get('/units/:cityName/projects/:projectName', async (req, res) => {
     const { cityName, projectName } = req.params;
-
+    console.log('Received city name:', cityName);
+    console.log('Received project name:', projectName);
+    
     try {
         const cityData = await Unit.findOne({ _id: cityName }).exec();
         if (!cityData) {
-            return res.json(null);
+            console.log('No city data found for:', cityName);
+            return res.json(null);  // Return null if no data is found
         }
 
+        // Find the specific project by its name
         const projectData = cityData.projects.find(project => project.name === projectName);
+        
         if (!projectData) {
+            console.log(`No project data found for: ${projectName} in ${cityName}`);
             return res.json(null);
         }
 
-        res.json(projectData);
+        console.log('Project data fetched:', projectData);
+        res.json(projectData);  // Send the specific project data
     } catch (error) {
         console.error('Error fetching city or project data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-// Route to get data for a specific city
+// Route to get data for a specific city by its name (or _id)
 app.get('/units/:cityName', async (req, res) => {
     const cityName = req.params.cityName;
     try {
         const cityData = await Unit.findOne({ _id: cityName }).exec();
+        console.log(cityData); // Log the data to check if it includes the units
         res.json(cityData);
     } catch (error) {
         console.error('Error fetching city data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
-// User schema and model for registration and login
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true }
@@ -156,7 +141,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Register route
+// Register Route
 app.post('/users/register', async (req, res) => {
     const { email, password } = req.body;
 
@@ -171,7 +156,7 @@ app.post('/users/register', async (req, res) => {
     }
 });
 
-// Login route
+// Login Route
 app.post('/users/login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -190,24 +175,15 @@ app.post('/users/login', async (req, res) => {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'your_jwt_secret');
+        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret');
         res.status(200).json({ token });
     } catch (error) {
-        console.error('Error logging in:', error);
+        console.error('Error logging in:', error);  // Log the exact error
         res.status(500).json({ error: 'Error logging in' });
     }
 });
 
-// Enforce HTTPS
-app.use((req, res, next) => {
-    if (req.secure) {
-        return next();
-    }
-    res.redirect(`https://${req.headers.host}${req.url}`);
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ error: 'Internal Server Error' });
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on https://37.148.206.181:3000');
 });
