@@ -12,7 +12,6 @@ const port = process.env.PORT || 3000;
 const options = {
     key: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem'), // Path to your private key file
     cert: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt'), // Path to your certificate file
-    ca: fs.readFileSync('/home/capitalhills/mybackend/gd_bundle-g2-g1.crt') // Path to your intermediate certificate file (optional but recommended)
 };
 
 // Initialize app and middleware
@@ -26,21 +25,18 @@ app.use(bodyParser.json()); // Handle JSON requests
 // MongoDB connection URI (adjust for your VPS IP)
 const mongoURI = 'mongodb://37.148.206.181:27017/capital';
 
-// Connect to MongoDB
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => {
-    console.log('Connected to MongoDB');
-    // Start the HTTPS server
-    https.createServer(options, app).listen(port, () => {
-        console.log(`Server is running on https://your-vps-ip:${port}`);
+// Connect to MongoDB without deprecated options
+mongoose.connect(mongoURI)
+    .then(() => {
+        console.log('Connected to MongoDB');
+        // Start the HTTPS server
+        https.createServer(options, app).listen(port, () => {
+            console.log(`Server is running on https://37.148.206.181:${port}`);
+        });
+    })
+    .catch((error) => {
+        console.error('Error connecting to MongoDB:', error);
     });
-})
-.catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-});
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
     name: { type: String, required: true },
