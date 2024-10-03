@@ -9,6 +9,15 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+const privateKey = fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem', 'utf8');
+const certificate = fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt', 'utf8');
+const ca = fs.readFileSync('/home/capitalhills/mybackend/gd_bundle-g2-g1.crt', 'utf8');
+
+// Or, if you combined the certificate and intermediate files:
+const credentials = { key: privateKey, cert: certificate, ca: ca };
+// Or, if you used a fullchain.crt:
+const credentials = { key: privateKey, cert: fs.readFileSync('/home/capitalhills/mybackend/fullchain.crt', 'utf8') };
+
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
