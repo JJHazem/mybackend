@@ -10,12 +10,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // Allow CORS from your frontend
-app.use(cors({
-    origin: 'https://capitalhillsdevelopments.com',  // Allow the frontend domain
-    methods: 'GET,POST',
-    optionsSuccessStatus: 200,
-    credentials: true  // Allow cookies to be sent with requests if necessary
-}));
+app.use(cors());
+
 
 app.use(helmet()); // Secure headers
 app.use(bodyParser.json()); // Handle JSON requests
