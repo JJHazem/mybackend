@@ -10,8 +10,8 @@ const port = process.env.PORT || 3000;
 
 // Load SSL certificate and key
 const options = {
-    key: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem'), // Path to your private key file
-    cert: fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt'), // Path to your certificate file
+    key: fs.readFileSync('/etc/ssl/private/68bb5f6b0e28d4ec.pem'), // Path to your .pem file
+    cert: fs.readFileSync('/etc/ssl/certs/68bb5f6b0e28d4ec.crt') // Path to your certificate file
 };
 
 // Initialize app and middleware
