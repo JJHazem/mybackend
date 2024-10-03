@@ -11,7 +11,7 @@ const fs = require('fs');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-const privateKey = fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.pem', 'utf8');
+const privateKey = fs.readFileSync('/home/capitalhills/mybackend/private.key', 'utf8');
 const certificate = fs.readFileSync('/home/capitalhills/mybackend/68bb5f6b0e28d4ec.crt', 'utf8');
 const ca = fs.readFileSync('/home/capitalhills/mybackend/gd_bundle-g2-g1.crt', 'utf8');
 
