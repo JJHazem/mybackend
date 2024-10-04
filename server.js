@@ -5,14 +5,19 @@ const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 3000;
-
+const https = require('https');
+const fs = require('fs');
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const privateKey = fs.readFileSync('/home/capitalhills/mybackend/private.key', 'utf8');
+const certificate = fs.readFileSync('/home/capitalhills/mybackend/certificate.crt', 'utf8');
 
-// Connect to MongoDB (replace with your actual MongoDB URI)
+const credentials = { key: privateKey, cert: certificate };
+
+
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -187,6 +192,8 @@ app.post('/users/login', async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
-    console.log('Server is running on https://37.148.206.181:3000');
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(3000, () => {
+    console.log('HTTPS Server running on https://37.148.206.181:3000');
 });
