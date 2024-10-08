@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
-mongoose.connect('mongodb://it-eg.org:27017/capital', {
+mongoose.connect('mongodb://localhost:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
