@@ -9,7 +9,7 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://capitalhillsdevelopments.com',
+    origin: 'https://it-eg.org',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
