@@ -9,9 +9,8 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://it-eg.org',
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: '*',  // Allow all origins; adjust as necessary for security
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
