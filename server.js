@@ -9,7 +9,7 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'capitalhillsdevelopments.com',  // Allow all origins; adjust as necessary for security
+    origin: '*',  // Allow all origins; adjust as necessary for security
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
