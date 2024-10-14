@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { createProxyMiddleware } = require('http-proxy-middleware');
-
+const multer = require('multer');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 3000;
@@ -21,7 +21,47 @@ mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public_html/'); // Set the destination to the public_html directory
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname)); // Rename the file to avoid duplicates
+    }
+});
 
+// File filter to accept specific file types
+const fileFilter = (req, file, cb) => {
+    const allowedTypes = /jpg|jpeg|png|gif|mp4|pdf/; // Define allowed file types
+    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = allowedTypes.test(file.mimetype);
+    
+    if (extname && mimetype) {
+        return cb(null, true);
+    } else {
+        cb('Error: File type not allowed!'); // Reject the file if not allowed
+    }
+};
+
+// Initialize upload with the storage configuration
+const upload = multer({ 
+    storage: storage,
+    limits: { fileSize: 10000000 }, // Limit file size to 10 MB (optional)
+    fileFilter: fileFilter // Apply the file filter
+});
+
+// API route for uploading files
+app.post('/upload', upload.array('files', 10), (req, res) => {
+    if (!req.files || req.files.length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    
+    // If you want to save the file names to your database, do it here.
+    const fileNames = req.files.map(file => file.filename);
+    console.log('Files uploaded:', fileNames);
+    
+    res.status(200).json({ message: 'Files uploaded successfully', files: fileNames });
+});
 
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
@@ -98,7 +138,49 @@ const unitSchema = new mongoose.Schema({
 
 
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
+app.post('/units/:cityName/projects', upload.fields([
+    { name: 'masterplan' }, { name: 'image' }, { name: 'brochure' }
+]), async (req, res) => {
+    const { cityName } = req.params;
+    const { projectName, overview, amenities, construction } = req.body;
+    
+    try {
+        const cityData = await Unit.findOne({ _id: cityName });
+        if (!cityData) {
+            return res.status(404).json({ error: 'City not found' });
+        }
 
+        let project = cityData.projects.find(p => p.name === projectName);
+
+        // If project doesn't exist, create a new one
+        if (!project) {
+            project = {
+                name: projectName,
+                overview,
+                masterplan: req.files['masterplan'] ? req.files['masterplan'][0].path : '',
+                amenities,
+                construction,
+                brochure: req.files['brochure'] ? req.files['brochure'][0].path : '',
+                units: []
+            };
+            cityData.projects.push(project);
+        } else {
+            // Update existing project
+            project.overview = overview;
+            project.amenities = amenities;
+            project.construction = construction;
+            if (req.files['masterplan']) project.masterplan = req.files['masterplan'][0].path;
+            if (req.files['brochure']) project.brochure = req.files['brochure'][0].path;
+        }
+
+        // Save the updated city document
+        await cityData.save();
+        res.status(200).json({ message: 'Project added/updated successfully' });
+    } catch (error) {
+        console.error('Error adding/updating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 // Route to get data for a specific project within a city
 app.get('/units/:cityName/projects/:projectName', async (req, res) => {
     const { cityName, projectName } = req.params;
