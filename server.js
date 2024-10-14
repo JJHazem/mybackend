@@ -2,8 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
-const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 3000;
@@ -21,47 +19,7 @@ mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public_html/'); // Set the destination to the public_html directory
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); // Rename the file to avoid duplicates
-    }
-});
 
-// File filter to accept specific file types
-const fileFilter = (req, file, cb) => {
-    const allowedTypes = /jpg|jpeg|png|gif|mp4|pdf/; // Define allowed file types
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = allowedTypes.test(file.mimetype);
-    
-    if (extname && mimetype) {
-        return cb(null, true);
-    } else {
-        cb('Error: File type not allowed!'); // Reject the file if not allowed
-    }
-};
-
-// Initialize upload with the storage configuration
-const upload = multer({ 
-    storage: storage,
-    limits: { fileSize: 10000000 }, // Limit file size to 10 MB (optional)
-    fileFilter: fileFilter // Apply the file filter
-});
-
-// API route for uploading files
-app.post('/upload', upload.array('files', 10), (req, res) => {
-    if (!req.files || req.files.length === 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
-    
-    // If you want to save the file names to your database, do it here.
-    const fileNames = req.files.map(file => file.filename);
-    console.log('Files uploaded:', fileNames);
-    
-    res.status(200).json({ message: 'Files uploaded successfully', files: fileNames });
-});
 
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
