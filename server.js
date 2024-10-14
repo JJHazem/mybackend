@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({
-    origin: '*',  // Allow all origins; adjust as necessary for security
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
+app.use((req, res, next) => {
+    // You could still manually allow all origins if needed
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
