@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const cors = require('cors');
+
 const bodyParser = require('body-parser');
 const port = 3000;
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+
 
 app.use('/api', createProxyMiddleware({
     target: 'https://it-eg.org',
