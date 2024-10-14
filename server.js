@@ -7,11 +7,7 @@ const port = 3000;
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-    // You could still manually allow all origins if needed
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors());
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
