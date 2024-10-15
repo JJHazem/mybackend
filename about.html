@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Capital Hills Developments Company - Home</title>
+    <link rel="stylesheet" href="hills.css">
+
+</head>
+<body>
+     
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <video id="loading-video" autoplay muted>
+            <source src="v2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <img id="loading-image" src="capy.jpeg" alt="Loading..." class="hidden">
+    </div>
+    
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <header class="header">
+            <div class="container">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    &#9776; <!-- Hamburger menu icon -->
+                </div>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="Capital_Hills3.png" alt="Capital Hills Developments Company">
+                    </a>
+                </div>
+                <nav class="right-nav">
+                    <ul>
+                        <li>
+                            <a href="tel:16794">
+                                <img tel: src="tel.png" alt="Tel" class="tel-icon">
+                                <h2 data-translate="tel">16794</h2>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="hero13">
+            <div class="hero">
+                <img src="lifehills.png" alt="start">
+            </div>
+        </div>
+<!--        <nav class="small-nav">
+            <ul>
+                <li><a href="#" id="about-nav">About Us</a></li>
+                <li><a href="#" id="team-nav">Our Team</a></li>
+            </ul>
+        </nav>-->
+        <nav class="left-nav" id="left-nav">
+            <div class="close-btn" onclick="toggleMenu()">&times;</div>
+            <div class="language-switcher">
+                <button class="lang-button active" id="en-button" data-translate="english" onclick="setLanguage('en')">En</button>
+                <button class="lang-button" id="ar-button" data-translate="arabic" onclick="setLanguage('ar')">Ar</button>
+            </div>
+            <ul>
+                <li><a href="index.html"data-translate="home" >Home</a></li>
+                <li><a href="about.html"data-translate="about_us">About Us</a></li>
+                <li>
+                    <a href="Projects.html" id="projects-link"data-translate="destinations" >
+                        Destinations
+                    </a>
+                </li>
+                <li><a href="media.html"data-translate="media_center">Media Center</a></li>
+                <li><a href="partner.html"data-translate="our_partners">Our Partners</a></li>
+                <li><a href="careers.html"data-translate="careers" >Careers</a></li>
+                <li><a href="contact.html"data-translate="contact_us">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content22">
+            <section id="about-text" class="content-section">
+                <div class="container22">
+
+                    
+
+                    <div class="grid-container">
+                        <div class="image-container">
+                            <img id="section-image" src="Mission.webp" alt="Default Image">
+                        </div>
+                        <div class="text-container">
+                            <div class="navigation-links">
+                                <a href="#" id="mission-link"class="active"data-translate="mission-link">Mission</a>
+                                <a href="#" id="vision-link"data-translate="vision-link">Vision</a>
+                                <a href="#" id="values-link" data-translate="values-link">Corporate Values</a>
+                            </div>
+                            <div class="content" id="mission-content">
+                                <h2 data-translate="mission-heading">Mission</h2>
+                                <p  data-translate="mission-text">Capital Hills is committed to creating a distinctive lifestyle for modern communities and tourism destinations in Egypt and overseas, providing employees with opportunities to contribute to the development and success of our communities.</p>
+                            </div>
+                            <div class="content" id="vision-content" style="display: none;">
+                                <h2  data-translate="vision-heading">Vision</h2>
+                                <p data-translate="vision-text">Capital Hills aspires to become the customers' first choice in the real-estate and tourism industries nationally and globally, providing our clients a great quality of life. While maintaining a long-term relation with our shareholders believing that they are our partners of success, providing them a rapid investment growth.</p>
+                            </div>
+                            <div class="content" id="values-content" style="display: none;">
+                                <h2 data-translate="values-heading">Corporate Values</h2>
+                                <ul>
+                                    <li data-translate="value-integrity">Integrity.</li>
+                                    <li data-translate="value-credibility">Credibility.</li>
+                                    <li data-translate="value-quality">Quality.</li>
+                                    <li data-translate="value-customer">Emphasis on the Customer.</li>
+                                    <li data-translate="value-approach">Scientific Approach.</li>
+                                    <li data-translate="value-innovation">Innovation.</li>
+                                    <li data-translate="value-teamwork">Teamwork.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="ceo-message">
+                        <div class="ceo-message-box">
+                            <div class="ceo-content">
+                                <img src="ceo.webp" alt="CEO Image" class="ceo-image"data-translate="ceo-image-alt">
+                                <div class="message-text">
+                                    <h2 data-translate="ceo-heading">Message from the CEO</h2>
+                                    <p data-translate="ceo-message-text">
+                                        "At Capital Hills Developments, we are committed to excellence and innovation. Our mission is to create spaces that enhance the lives of our clients and the communities we serve."
+                                    </p>
+                                    <button id="read-more-btn"data-translate="read-more">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </section>
+ <!--           <section id="team-grid" class="content-section hidden">
+                <div class="container22">
+                    <h2>Our Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member" data-member="1">
+                            <img src="person1.jpeg" alt="Team Member 1">
+                            <h3>John Doe</h3>
+                            <p>CEO</p>
+                        </div>
+                        <div class="team-member" data-member="2">
+                            <img src="person2.jpeg" alt="Team Member 2">
+                            <h3>Jack Smith</h3>
+                            <p>CTO</p>
+                        </div>
+                        <div class="team-member" data-member="3">
+                            <img src="person3.jpeg" alt="Team Member 3">
+                            <h3>Emily Johnson</h3>
+                            <p>COO</p>
+                        </div>
+                        <div class="team-member" data-member="4">
+                            <img src="person4.jpeg" alt="Team Member 4">
+                            <h3>Michael Brown</h3>
+                            <p>CFO</p>
+                        </div>
+                    </div>
+                </div>-->
+            </section>
+
+            <div class="social-media-buttons">
+                <a href="https://www.instagram.com/capitalhillsdev?fbclid=IwZXh0bgNhZW0CMTAAAR12IlS5iaxV74V33Ej6rD9JZjkSipRLrdx1dEUSD_9Y76njTb3yHdHtNOU_aem_27Tbrk8r-01b4-wUizX50g" target="_blank" class="social-button instagram">
+                    <img src="instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/CapitalHillsDev/" target="_blank" class="social-button facebook">
+                    <img src="facebook.svg" alt="Facebook">
+                </a>
+                <a href="https://www.linkedin.com/company/capitalhillsdevelopments/" target="_blank" class="social-button linkedin">
+                    <img src="linkedin.svg" alt="LinkedIn">
+                </a>
+                <a href="https://wa.me/01063885005" target="_blank" class="social-button whatsapp">
+                    <img src="whatsapp.svg" alt="WhatsApp">
+                </a>
+            </div>
+            
+                    <!-- Modal -->
+                    <div id="ceo-modal" class="modalc">
+                        <div class="modalc-content">
+                            <span class="close-btnc">&times;</span>
+                            <div class="modal-ceo-content">
+                                <img src="ceo.webp" alt="CEO Image" class="modal-ceo-image"data-translate="modal-ceo-image-alt">
+                                <div class="modal-message-text">
+                                    <h2 data-translate="modal-ceo-heading">Message from the CEO</h2>
+                                    <p data-translate="modal-ceo-text1">
+                                        "At Capital Hills Developments, we are committed to excellence and innovation. Our mission is to create spaces that enhance the lives of our clients and the communities we serve"
+                                    </p>
+                                    <p data-translate="modal-ceo-text2">
+                                             Capital Hills Developments,  has become an effective national contributor leading urban development in Egypt, participating in establishing unprecedented standards in the real estate development industry to position its real estate and tourism projects as the ultimate model for sophistication and quality of life.
+
+ 
+
+                                             The blessing of the Almighty God and the trust of our partners in success, shareholders, and stockholders of our projects were and still are the main force and essential support in driving our path towards growth and prosperity.
+                                             
+                                             As much as we strived to keep up with all the global changes during the past period, today we are about to instill new standards into our growth strategy with the aim of complying with the new changes and presenting residential and touristic products that conform with the needs of the era, as well as the essential standards and determining factors required by the nature of this stage.
+                                             
+                                             
+                                             
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 <!--  <div id="modal-1" class="modal99">
+                        <div class="modal-content99">
+                            <span class="close99" data-modal="1">&times;</span>
+                            <h2>John Doe's Portfolio</h2>
+                            <p>John Doe is the Chairman and Managing Director of the Housing and Development Bank. Ghanem also has extensive banking experience of more than 33 years, during which he occupied numerous leadership positions, with escalating responsibility, in the banking sector. Ghanem assumed the role of Vice-chairman and Managing director of the Housing and Development Bank in January 2018.  Among his priorities, since then, has been to become one of the top 10 leading banks recognized as a commercial bank that provides complete banking services to its customers.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="modal-2" class="modal99">
+                        <div class="modal-content99">
+                            <span class="close99" data-modal="2">&times;</span>
+                            <h2>Jack Smith's Portfolio</h2>
+                            <p>Jack Smith has extensive experience in project financing deals, as well as mergers and acquisitions. He has previously served as a partner at a leading regional law firm, where he worked with national and international clients on matters of commercial and corporate law, such as IPOâ€™s, share sales and transfers, mergers and acquisitions. In 2012, Weshahi became the head of the law department â€“English section at Cairo University.   Weshahi has published several studies on Egyptian commercial law and is a member of the Centre de Droit des Affaires at the Aix Marseille University in France. He holds a Ph.D in commercial law from the same university and received his Bachelorâ€™s degree in law from Cairo University in 1997.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="modal-3" class="modal99">
+                        <div class="modal-content99">
+                            <span class="close99" data-modal="3">&times;</span>
+                            <h2>Emily Johnson's Portfolio</h2>
+                            <p>Emily Johnson has been the Vice President of the New Urban Communities Authority for the Planning and Projects Sector since 2016, and in the same year she was honored to be among the top 50 influential women in business enterprises.   Ragaa has 39 years of extensive experience in the field of urban planning. She obtained a Bachelor of Architecture in 1981 from Cairo University.   Before joining the New Urban Communities Authority, Ragaa worked in the 6th of October City Authority from 1981 until 2010, until she became the General Director of Project Management in the 6th of October City Authority.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="modal-4" class="modal99">
+                        <div class="modal-content99">
+                            <span class="close99" data-modal="4">&times;</span>
+                            <h2>Michael Brown's Portfolio</h2>
+                            <p>Former minister of trade and industry for Egypt, Tarek Kabil is member of the board of directors in City Edge, as well as other big entities including, Housing and development bank, Egypt Foods, Cleopatra Hospitals. Previously Tarek held leadership positions in PepsiCo for 18 years, most recently the President of PepsiCo international for Middle East and Africa (MEA) for beverages and snacks and president and CEO for MEA and Southeast Asia for Intl Dairy and Juice Co.joint venture between PepsiCo and Almarai Co.</p>
+                        </div>
+                    </div>--> 
+        </main>
+        <div id="get-in-touch-container" class="get-in-touch-container">
+            <div data-translate="get_in_touch" id="get-in-touch-tab" class="get-in-touch-tab"><span class="phone">&phone;</span> Get in Touch</div>
+            <div id="contact-form" class="contact-form">
+                <form action="https://formspree.io/f/mnnapoww" method="POST">
+                    <label data-translate="name" for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label data-translate="phone" for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+        
+                    <label data-translate="email" for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label data-translate="inquiry_type" for="inquiry-type">Inquiry Type:</label>
+                    <select id="inquiry-type" name="inquiry-type">
+                        <option value="General"data-translate="general">General </option>
+                        <option value="Feedback"data-translate="feedback">Feedback</option>
+                        
+                    </select>
+        
+                    <label data-translate="message" for="message">Your Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+        
+                    <label data-translate="destination" for="destination">Position</label>
+                    <select id="destination" name="destination">
+                        <option value="new-capital-city" data-translate="new_capital_city">New Capital City</option>
+                        <option value="new-cairo-city" data-translate="new_cairo_city">New Cairo City</option>
+                        <option value="sheikh-zayed-city" data-translate="sheikh_zayed_city">Sheikh Zayed City</option>
+                        <option value="6th-of-october-city" data-translate="october_city">6th of October City</option>
+                    </select>
+        
+                    <button data-translate="submit" type="submit">Submit</button>
+                </form>
+                <div id="form-message"></div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="Capital_Hills3.png" alt="Capital Hills Developments Company">
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html"data-translate="home">Home</a></li>
+                        <li><a href="about.html"data-translate="about_us">About Us</a></li>
+                        <li><a href="Projects.html"data-translate="destinations">Destinations</a></li>
+                        <li><a href="media.html"data-translate="media_center">Media Center</a></li>
+                        <li><a href="partner.html"data-translate="our_partners">Our Partners</a></li>
+                        <li><a href="careers.html"data-translate="careers">Careers</a></li>
+                        <li><a href="contact.html"data-translate="contact_us">Contact Us</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:info@capitalhillsdevelopments.com">
+                        info@capitalhillsdevelopments.com</a></p>
+                </div>
+                <div class="footer-social">
+                    <h3 data-translate="follow_us">Follow us on:</h3>
+                    <a href="https://www.facebook.com/CapitalHillsDev/">
+                        <img src="facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/capitalhillsdev?fbclid=IwZXh0bgNhZW0CMTAAAR12IlS5iaxV74V33Ej6rD9JZjkSipRLrdx1dEUSD_9Y76njTb3yHdHtNOU_aem_27Tbrk8r-01b4-wUizX50g">
+                        <img src="instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/company/capitalhillsdevelopments/">
+                        <img src="linkedin.svg" alt="Instagram">
+                    </a>
+                </div>
+                <div class="footer-copy">
+                    <p data-translate="all_rights_reserved">&copy; 2024 Capital Hills Developments - All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            
+            async function loadTranslations(lang) {
+                try {
+                    const response = await fetch(`https://it-eg.org/translations/${lang}`);
+                    
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+            
+                    const data = await response.json();
+            
+                    // Replace content with translations
+                    document.querySelectorAll('[data-translate]').forEach(element => {
+                        const key = element.getAttribute('data-translate');
+                        if (data[key]) {
+                            element.textContent = data[key];
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error loading translations:', error);
+                }
+            }
+            
+            // Function to switch language
+            function switchLanguage(lang) {
+                loadTranslations(lang);
+                document.documentElement.lang = lang;
+            
+                if (lang === 'ar') {
+                    document.body.style.direction = 'rtl';
+                    document.body.classList.add('rtl');
+                } else {
+                    document.body.style.direction = 'ltr';
+                    document.body.classList.remove('rtl');
+                }
+            
+                // Store the selected language in localStorage
+                localStorage.setItem('language', lang);
+            
+                // Update active button state
+                document.querySelectorAll('.lang-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+                document.getElementById(`${lang}-button`).classList.add('active');
+            }
+            
+            // Event listeners for language buttons
+            document.getElementById('en-button').addEventListener('click', () => switchLanguage('en'));
+            document.getElementById('ar-button').addEventListener('click', () => switchLanguage('ar'));
+            
+            // On page load, set the default language based on localStorage
+            document.addEventListener('DOMContentLoaded', () => {
+                const savedLang = localStorage.getItem('language') || 'en'; // Default to English if not set
+                switchLanguage(savedLang);
+            });
+            
+       
+            document.getElementById('read-more-btn').onclick = function() {
+                document.getElementById('ceo-modal').style.display = 'flex';
+            }
+            
+            document.querySelector('.close-btnc').onclick = function() {
+                document.getElementById('ceo-modal').style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('ceo-modal')) {
+                    document.getElementById('ceo-modal').style.display = 'none';
+                }
+            }
+            
+            // Get elements
+            const missionLink = document.getElementById('mission-link');
+            const visionLink = document.getElementById('vision-link');
+            const valuesLink = document.getElementById('values-link');
+
+            const missionContent = document.getElementById('mission-content');
+            const visionContent = document.getElementById('vision-content');
+            const valuesContent = document.getElementById('values-content');
+
+            // Image element
+            const sectionImage = document.getElementById('section-image');
+
+            // Define the images for each section
+            const missionImageSrc = 'Mission.webp'; // Replace with your actual image path
+            const visionImageSrc = 'bond.png'; // Replace with your actual image path
+            const valuesImageSrc = 'Corporate.webp'; // Replace with your actual image path
+            
+
+            // Function to fade in elements
+            function fadeIn(element, duration = 500) {
+                element.style.opacity = 0;
+                element.style.display = 'block';
+
+                let startTime = null;
+
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = timestamp - startTime;
+                    const opacity = Math.min(progress / duration, 1);
+                    element.style.opacity = opacity;
+
+                    if (progress < duration) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+
+                window.requestAnimationFrame(step);
+            }
+
+            // Function to fade out elements, then call a callback if provided
+            function fadeOut(element, duration = 500, callback) {
+                let startTime = null;
+
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = timestamp - startTime;
+                    const opacity = Math.max(1 - progress / duration, 0);
+                    element.style.opacity = opacity;
+
+                    if (progress < duration) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        element.style.display = 'none';
+                        if (callback) callback(); // Trigger callback after fade out
+                    }
+                }
+
+                // Start animation
+                window.requestAnimationFrame(step);
+            }
+
+            // Function to handle switching content and image simultaneously
+            function switchContent(activeContent, inactiveContent1, inactiveContent2, newImageSrc, activeLink, inactiveLink1, inactiveLink2) {
+                // Fade out both content and image simultaneously
+                fadeOut(inactiveContent1, 500);
+                fadeOut(inactiveContent2, 500);
+                fadeOut(activeContent, 500);
+
+                // Change image source and content at the same time
+                fadeOut(sectionImage, 500, () => {
+                    // Set the new image and content to fade in at the same time
+                    sectionImage.src = newImageSrc;
+                    fadeIn(sectionImage, 500);
+                    fadeIn(activeContent, 500);
+                });
+
+                // Toggle active class for the navigation links
+                activeLink.classList.add('active');
+                inactiveLink1.classList.remove('active');
+                inactiveLink2.classList.remove('active');
+            }
+
+            // Add event listeners for each link
+            missionLink.addEventListener('click', function() {
+                switchContent(missionContent, visionContent, valuesContent, missionImageSrc, missionLink, visionLink, valuesLink);
+            });
+
+            visionLink.addEventListener('click', function() {
+                switchContent(visionContent, missionContent, valuesContent, visionImageSrc, visionLink, missionLink, valuesLink);
+            });
+
+            valuesLink.addEventListener('click', function() {
+                switchContent(valuesContent, missionContent, visionContent, valuesImageSrc, valuesLink, missionLink, visionLink);
+            });
+
+
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const teamMembers = document.querySelectorAll('.team-member');
+                const modals = document.querySelectorAll('.modal99');
+                const closeButtons = document.querySelectorAll('.close99');
+            
+                teamMembers.forEach(member => {
+                    member.addEventListener('click', function() {
+                        const memberId = this.getAttribute('data-member');
+                        document.getElementById(`modal-${memberId}`).style.display = 'block';
+                    });
+                });
+            
+                closeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const modalId = this.getAttribute('data-modal');
+                        document.getElementById(`modal-${modalId}`).style.display = 'none';
+                    });
+                });
+            
+                window.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('modal99')) {
+                        event.target.style.display = 'none';
+                    }
+                });
+            });
+            const modal = document.getElementById("ceo-modal");
+            const openModalBtn = document.getElementById("openModalBtn");
+            const closeBtn = document.querySelector(".close-btnc");
+
+            openModalBtn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+   
+
+        </script>
+        <script src="hills.js" defer></script>
+    </div>
+</body>
+</html>
+</html>
