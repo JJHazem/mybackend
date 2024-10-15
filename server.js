@@ -96,49 +96,7 @@ const unitSchema = new mongoose.Schema({
 
 
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
-app.post('/units/:cityName/projects', upload.fields([
-    { name: 'masterplan' }, { name: 'image' }, { name: 'brochure' }
-]), async (req, res) => {
-    const { cityName } = req.params;
-    const { projectName, overview, amenities, construction } = req.body;
-    
-    try {
-        const cityData = await Unit.findOne({ _id: cityName });
-        if (!cityData) {
-            return res.status(404).json({ error: 'City not found' });
-        }
 
-        let project = cityData.projects.find(p => p.name === projectName);
-
-        // If project doesn't exist, create a new one
-        if (!project) {
-            project = {
-                name: projectName,
-                overview,
-                masterplan: req.files['masterplan'] ? req.files['masterplan'][0].path : '',
-                amenities,
-                construction,
-                brochure: req.files['brochure'] ? req.files['brochure'][0].path : '',
-                units: []
-            };
-            cityData.projects.push(project);
-        } else {
-            // Update existing project
-            project.overview = overview;
-            project.amenities = amenities;
-            project.construction = construction;
-            if (req.files['masterplan']) project.masterplan = req.files['masterplan'][0].path;
-            if (req.files['brochure']) project.brochure = req.files['brochure'][0].path;
-        }
-
-        // Save the updated city document
-        await cityData.save();
-        res.status(200).json({ message: 'Project added/updated successfully' });
-    } catch (error) {
-        console.error('Error adding/updating project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
 // Route to get data for a specific project within a city
 app.get('/units/:cityName/projects/:projectName', async (req, res) => {
     const { cityName, projectName } = req.params;
