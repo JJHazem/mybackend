@@ -19,7 +19,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // Connect to MongoDB (replace with your actual MongoDB URI)
-mongoose.connect('mongodb://37.148.206.181:27017/capital', {
+mongoose.connect('mongodb://it-eg.org:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
