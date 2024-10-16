@@ -21,24 +21,26 @@ app.use(cors(corsOptions));
 // Preflight request handling (OPTIONS requests)
 app.options('*', cors(corsOptions));  // This ensures proper handling of CORS preflight
 
-// Security headers (optional)
+// Security and Cache-Control headers for all responses
 app.use((req, res, next) => {
-    res.setHeader('X-Content-Type-Options', 'nosniff');  // Security header to prevent MIME sniffing
-    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");  // Prevent clickjacking and embedding
+    // Security Headers
+    res.setHeader('X-Content-Type-Options', 'nosniff');  // Prevent MIME sniffing
+    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");  // Prevent embedding (clickjacking)
+    
+    // Cache-Control for dynamic content
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');  // Prevent caching of dynamic content
+
     next();
 });
 
-// Cache-Control header for dynamic content (API responses)
-app.use((req, res, next) => {
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');  // Prevent caching of dynamic responses
-    next();
-});
-
-// Serve static files with proper caching headers (e.g., images, CSS, JavaScript)
+// Serve static files with CORS and proper caching
 app.use(express.static('public', {
     maxAge: '1y',  // Cache static files for 1 year
     setHeaders: (res, path) => {
+        // Ensure CORS headers for static files
+        res.setHeader('Access-Control-Allow-Origin', 'https://capitalhillsdevelopments.com'); // Ensure valid CORS header for static files
         res.setHeader('Cache-Control', 'public, max-age=31536000');  // Cache-Control header for static files
+        res.setHeader('X-Content-Type-Options', 'nosniff');  // Apply X-Content-Type-Options to static files as well
     }
 }));
 
