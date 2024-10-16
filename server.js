@@ -14,7 +14,6 @@ const corsOptions = {
     origin: '*', // Your frontend domain
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true // Enable cookies or authorization headers to be sent
 };
 
 app.use(cors(corsOptions));
