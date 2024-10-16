@@ -7,7 +7,7 @@ const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
 const app = express();
-app.use(bodyParser.json());
+
 const corsOptions = {
     origin: function (origin, callback) {
         const allowedOrigins = [
@@ -29,6 +29,7 @@ const corsOptions = {
 
 // Apply CORS to all routes
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
 // Preflight request handling (OPTIONS requests)
 app.options('*', cors(corsOptions)); // This ensures proper handling of CORS preflight
