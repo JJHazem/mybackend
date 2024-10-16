@@ -3,35 +3,16 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+
 const port = 3000;
 // Initialize app and middleware
 const app = express();
 
-// CORS configuration to allow specific domains
-const corsOptions = {
-    origin: ['https://capitalhillsdevelopments.com', 'https://it-eg.org'],  // Allowed origins
-    methods: ['GET', 'POST', 'OPTIONS'],  // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
-    credentials: true,  // Allow credentials (cookies, etc.)
-};
-
-// Apply CORS to all routes
-app.use(cors(corsOptions));
-
-// Handle preflight (OPTIONS) requests
-app.options('*', cors(corsOptions));  
-
-// Middleware for parsing JSON requests
+// Your routes and middleware
 app.use(express.json());
 
 // Serve static files
 app.use(express.static('public'));
-
-// Example route
-app.get('/', (req, res) => {
-    res.send('CORS Configured!');
-});
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
