@@ -44,6 +44,20 @@ app.use(express.static('public', {
     }
 }));
 
+// Proxy route to forward requests to the external API
+app.get('/proxy/units/new-capital', (req, res) => {
+    const externalApiUrl = 'https://it-eg.org/units/new-capital'; // Target API
+
+    // Use request to forward the request to the external API
+    request(externalApiUrl, { method: 'GET' })
+        .on('error', (error) => {
+            // Handle errors from the external server
+            console.error('Error fetching data from external API:', error);
+            res.status(500).send('Failed to fetch data from external API');
+        })
+        .pipe(res); // Pipe the response from the external API back to the client
+});
+
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
