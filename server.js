@@ -8,7 +8,14 @@ const port = 3000;
 // Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+const corsOptions = {
+    origin: 'https://capitalhillsdevelopments.com', // Allow only this origin
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
