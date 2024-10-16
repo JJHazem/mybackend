@@ -2,17 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const port = 3000;
 // Initialize app and middleware
 const app = express();
 
-// Your routes and middleware
-app.use(express.json());
+// Simple CORS setup to allow all origins
+app.use(cors());
 
-// Serve static files
-app.use(express.static('public'));
+// Middleware for parsing JSON bodies
+app.use(bodyParser.json());
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
