@@ -32,8 +32,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-// Preflight request handling (OPTIONS requests)
-app.options(cors(corsOptions)); // This ensures proper handling of CORS preflight
+
 
 // Security and Cache-Control headers for all responses
 app.use((req, res, next) => {
