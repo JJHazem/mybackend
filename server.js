@@ -18,13 +18,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://capitalhillsdevelopments.com');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true'); // If you are using credentials like cookies
-    next();
-});
+
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://it-eg.org:27017/capital', {
