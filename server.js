@@ -224,6 +224,6 @@ app.post('/users/login', async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
+app.listen(3000, '0.0.0.0' , () => {
     console.log('Server is running on https://it-eg.org:3000');
 });
