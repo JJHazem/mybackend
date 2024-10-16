@@ -12,7 +12,8 @@ const corsOptions = {
     origin: function (origin, callback) {
         const allowedOrigins = [
             'https://capitalhillsdevelopments.com',
-            'https://it-eg.org'
+            'https://it-eg.org',
+            'http://37.148.206.181'
         ];
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
             console.log(`CORS allowed for origin: ${origin}`);
