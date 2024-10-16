@@ -28,6 +28,20 @@ app.use((req, res, next) => {
     next();
 });
 
+// Cache-Control header for dynamic content (API responses)
+app.use((req, res, next) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');  // Prevent caching of dynamic responses
+    next();
+});
+
+// Serve static files with proper caching headers (e.g., images, CSS, JavaScript)
+app.use(express.static('public', {
+    maxAge: '1y',  // Cache static files for 1 year
+    setHeaders: (res, path) => {
+        res.setHeader('Cache-Control', 'public, max-age=31536000');  // Cache-Control header for static files
+    }
+}));
+
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
