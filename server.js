@@ -8,18 +8,22 @@ const port = 3000;
 // Initialize app and middleware
 const app = express();
 
-// Allow all origins for development
-app.use(cors({
-    origin: '*',  // Allow all origins
+// CORS configuration to allow specific domains
+const corsOptions = {
+    origin: ['https://capitalhillsdevelopments.com', 'https://it-eg.org'],  // Allow your frontend and backend domains
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,  // Allow cookies and credentials
-}));
+    credentials: true,  // Allow credentials like cookies
+};
 
-// Your routes and middleware here
+// Apply CORS to all routes
+app.use(cors(corsOptions));
+
+// Your routes and middleware
 app.use(express.json());
-app.use(express.static('public'));
 
+// Serve static files
+app.use(express.static('public'));
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
