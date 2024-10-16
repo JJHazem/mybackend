@@ -11,14 +11,15 @@ app.use(bodyParser.json());
 const corsOptions = {
     origin: function (origin, callback) {
         const allowedOrigins = [
-            'https://capitalhillsdevelopments.com', // Allow this origin
-            'https://it-eg.org'                     // Allow the VPS origin if needed
+            'https://capitalhillsdevelopments.com',
+            'https://it-eg.org'
         ];
-        // Allow requests from both origins or no origin (e.g., when the request is made from the server itself)
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true); // Allow the origin
+            console.log(`CORS allowed for origin: ${origin}`);
+            callback(null, true);
         } else {
-            callback(new Error('Not allowed by CORS')); // Reject the origin
+            console.log(`CORS denied for origin: ${origin}`);
+            callback(new Error('Not allowed by CORS'));
         }
     },
     methods: ['GET', 'POST', 'OPTIONS'],
