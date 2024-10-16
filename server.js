@@ -9,7 +9,18 @@ const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 const corsOptions = {
-    origin: 'https://capitalhillsdevelopments.com', // Allow only this origin
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            'https://capitalhillsdevelopments.com', // Allow this origin
+            'https://it-eg.org'                     // Allow the VPS origin if needed
+        ];
+        // Allow requests from both origins or no origin (e.g., when the request is made from the server itself)
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true); // Allow the origin
+        } else {
+            callback(new Error('Not allowed by CORS')); // Reject the origin
+        }
+    },
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, // Allow credentials (cookies, etc.)
@@ -19,31 +30,31 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Preflight request handling (OPTIONS requests)
-app.options('*', cors(corsOptions));  // This ensures proper handling of CORS preflight
+app.options('*', cors(corsOptions)); // This ensures proper handling of CORS preflight
 
 // Security and Cache-Control headers for all responses
 app.use((req, res, next) => {
     // Security Headers
-    res.setHeader('X-Content-Type-Options', 'nosniff');  // Prevent MIME sniffing
-    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");  // Prevent embedding (clickjacking)
-    
+    res.setHeader('X-Content-Type-Options', 'nosniff'); // Prevent MIME sniffing
+    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'"); // Prevent embedding (clickjacking)
+
     // Cache-Control for dynamic content
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');  // Prevent caching of dynamic content
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate'); // Prevent caching of dynamic content
 
     next();
 });
 
 // Serve static files with CORS and proper caching
 app.use(express.static('public', {
-    maxAge: '1y',  // Cache static files for 1 year
+    maxAge: '1y', // Cache static files for 1 year
     setHeaders: (res, path) => {
         // Ensure CORS headers for static files
         res.setHeader('Access-Control-Allow-Origin', 'https://capitalhillsdevelopments.com'); // Ensure valid CORS header for static files
-        res.setHeader('Cache-Control', 'public, max-age=31536000');  // Cache-Control header for static files
-        res.setHeader('X-Content-Type-Options', 'nosniff');  // Apply X-Content-Type-Options to static files as well
+        res.setHeader('Access-Control-Allow-Origin', 'https://it-eg.org'); // Allow VPS domain for static files
+        res.setHeader('Cache-Control', 'public, max-age=31536000'); // Cache-Control header for static files
+        res.setHeader('X-Content-Type-Options', 'nosniff'); // Apply X-Content-Type-Options to static files as well
     }
 }));
-
 
 
 
@@ -224,6 +235,6 @@ app.post('/users/login', async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, '0.0.0.0' , () => {
+app.listen(3000, () => {
     console.log('Server is running on https://it-eg.org:3000');
 });
