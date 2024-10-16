@@ -8,31 +8,10 @@ const port = 3000;
 // Initialize app and middleware
 const app = express();
 
-const corsOptions = {
-    origin: function (origin, callback) {
-        const allowedOrigins = [
-            'https://capitalhillsdevelopments.com',
-            'https://it-eg.org',
-            'http://37.148.206.181'
-        ];
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            console.log(`CORS allowed for origin: ${origin}`);
-            callback(null, true);
-        } else {
-            console.log(`CORS denied for origin: ${origin}`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Allow credentials (cookies, etc.)
-};
+app.use(cors());
 
-// Apply CORS to all routes
-app.use(cors(corsOptions));
+// Middleware for parsing JSON bodies
 app.use(bodyParser.json());
-
-
 
 // Security and Cache-Control headers for all responses
 app.use((req, res, next) => {
@@ -50,14 +29,11 @@ app.use((req, res, next) => {
 app.use(express.static('public', {
     maxAge: '1y', // Cache static files for 1 year
     setHeaders: (res, path) => {
-        // Ensure CORS headers for static files
-        res.setHeader('Access-Control-Allow-Origin', 'https://capitalhillsdevelopments.com'); // Ensure valid CORS header for static files
-        res.setHeader('Access-Control-Allow-Origin', 'https://it-eg.org'); // Allow VPS domain for static files
+        // Ensure proper caching for static files
         res.setHeader('Cache-Control', 'public, max-age=31536000'); // Cache-Control header for static files
         res.setHeader('X-Content-Type-Options', 'nosniff'); // Apply X-Content-Type-Options to static files as well
     }
 }));
-
 
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
