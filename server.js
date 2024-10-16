@@ -12,18 +12,19 @@ const corsOptions = {
     origin: 'https://capitalhillsdevelopments.com', // Allow only this origin
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Allow credentials
+    credentials: true, // Allow credentials (cookies, etc.)
 };
 
+// Apply CORS to all routes
 app.use(cors(corsOptions));
 
-// Optional: Ensure handling of preflight requests properly
-app.options('*', cors(corsOptions));  // Preflight request handler
+// Preflight request handling (OPTIONS requests)
+app.options('*', cors(corsOptions));  // This ensures proper handling of CORS preflight
 
-// Optional: Add security headers
+// Security headers (optional)
 app.use((req, res, next) => {
-    res.setHeader('X-Content-Type-Options', 'nosniff');  // Security header
-    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");  // Prevent embedding
+    res.setHeader('X-Content-Type-Options', 'nosniff');  // Security header to prevent MIME sniffing
+    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");  // Prevent clickjacking and embedding
     next();
 });
 
