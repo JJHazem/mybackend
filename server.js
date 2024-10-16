@@ -8,32 +8,17 @@ const port = 3000;
 // Initialize app and middleware
 const app = express();
 
-app.use(cors());
-
-// Middleware for parsing JSON bodies
-app.use(bodyParser.json());
-
-// Security and Cache-Control headers for all responses
-app.use((req, res, next) => {
-    // Security Headers
-    res.setHeader('X-Content-Type-Options', 'nosniff'); // Prevent MIME sniffing
-    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'"); // Prevent embedding (clickjacking)
-
-    // Cache-Control for dynamic content
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate'); // Prevent caching of dynamic content
-
-    next();
-});
-
-// Serve static files with CORS and proper caching
-app.use(express.static('public', {
-    maxAge: '1y', // Cache static files for 1 year
-    setHeaders: (res, path) => {
-        // Ensure proper caching for static files
-        res.setHeader('Cache-Control', 'public, max-age=31536000'); // Cache-Control header for static files
-        res.setHeader('X-Content-Type-Options', 'nosniff'); // Apply X-Content-Type-Options to static files as well
-    }
+// Allow all origins for development
+app.use(cors({
+    origin: '*',  // Allow all origins
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,  // Allow cookies and credentials
 }));
+
+// Your routes and middleware here
+app.use(express.json());
+app.use(express.static('public'));
 
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
