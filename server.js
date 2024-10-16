@@ -7,23 +7,17 @@ const bodyParser = require('body-parser');
 const port = 3000;
 // Initialize app and middleware
 const app = express();
+app.use(bodyParser.json());
 
-// Simple CORS setup to allow all origins
+// CORS configuration
 const corsOptions = {
-    origin: ['https://capitalhillsdevelopments.com', 'https://it-eg.org'],  // Allow your frontend and backend domains
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,  // Allow credentials like cookies
+    origin: 'https://capitalhillsdevelopments.com', // Your frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true // Enable cookies or authorization headers to be sent
 };
 
-// Apply CORS to all routes
 app.use(cors(corsOptions));
-
-// Your routes and middleware
-app.use(express.json());
-
-// Serve static files
-app.use(express.static('public'));
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
