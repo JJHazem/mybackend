@@ -2,21 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 const port = 3000;
 // Initialize app and middleware
 const app = express();
-app.use(bodyParser.json());
-
-// CORS configuration
-const corsOptions = {
-    origin: '*', // Your frontend domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-};
-
-app.use(cors(corsOptions));
 
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
