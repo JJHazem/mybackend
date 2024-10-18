@@ -2,25 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
+
 const port = 3000;
 // Initialize app and middleware
 const app = express();
-const corsOptions = {
-    origin: ['https://capitalhillsdevelopments.com', 'https://it-eg.org'],  // Specify the allowed domains
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,  // Allow credentials like cookies
-};
-
-app.use(cors(corsOptions));
-
-// Preflight OPTIONS request handling
-app.options('*', cors(corsOptions));
-
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
-mongoose.connect('mongodb://localhost:27017/capital', {
+mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
