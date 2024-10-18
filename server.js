@@ -2,11 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
 const app = express();
 
+app.use(cors({ origin: 'https://capitalhillsdevelopments.com' })); 
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
