@@ -3,18 +3,23 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const path = require('path');
 const port = 3000;
+const multer = require('multer');
+const bodyParser = require('body-parser');
 // Initialize app and middleware
 const app = express();
 app.disable('x-powered-by');
 
 app.use(cors({
     origin: 'https://capitalhillsdevelopments.com',  // Your allowed origin
-    methods: ['GET', 'POST', 'OPTIONS'],  // Allowed HTTP methods
+    methods: ['GET', 'POST', 'PUT', 'OPTIONS'],  // Allowed HTTP methods
     allowedHeaders: ['Authorization', 'Content-Type'],  // Allowed headers
     credentials: true  // Allow credentials
 }));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads')); // Serve uploaded files
 app.use((req, res, next) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     next();
@@ -105,7 +110,16 @@ const unitSchema = new mongoose.Schema({
 
 
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
-
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        // Set the destination to public_html directly
+        cb(null, path.join(__dirname, 'public_html')); // Adjust this path if needed
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Save file with a unique name
+    }
+});
+const upload = multer({ storage });
 // Route to get data for a specific project within a city
 app.get('/units/:cityName/projects/:projectName', async (req, res) => {
     const { cityName, projectName } = req.params;
@@ -195,7 +209,59 @@ app.post('/users/login', async (req, res) => {
         res.status(500).json({ error: 'Error logging in' });
     }
 });
+// Add a new project
+app.post('/units/:city/projects', upload.array('unitImage', 5), async (req, res) => {
+    try {
+        const project = new Project({
+            name: req.body.name,
+            city: req.params.city,
+            overview: req.body.overview,
+            units: req.body.units.map((unit, index) => ({
+                name: unit.unitName,
+                type: unit.unitType,
+                rooms: unit.unitRooms,
+                area: unit.unitArea,
+                image: req.files[index] ? `/uploads/${req.files[index].filename}` : null // Use the URL accessible from public_html
+            })),
+        });
 
+        await project.save();
+        res.status(201).json(project);
+    } catch (error) {
+        console.error('Error adding project:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// Edit an existing project
+app.put('/units/:city/projects/:name', upload.array('unitImage', 5), async (req, res) => {
+    try {
+        const updatedProject = await Project.findOneAndUpdate(
+            { city: req.params.city, name: req.params.name },
+            {
+                name: req.body.name,
+                overview: req.body.overview,
+                units: req.body.units.map((unit, index) => ({
+                    name: unit.unitName,
+                    type: unit.unitType,
+                    rooms: unit.unitRooms,
+                    area: unit.unitArea,
+                    image: req.files[index] ? `/uploads/${req.files[index].filename}` : null // Update the URL for the image
+                }))
+            },
+            { new: true } // Return the updated document
+        );
+
+        if (updatedProject) {
+            res.json(updatedProject);
+        } else {
+            res.status(404).json({ message: 'Project not found' });
+        }
+    } catch (error) {
+        console.error('Error updating project:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on https://it-eg.org:3000');
