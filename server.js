@@ -9,7 +9,6 @@ const multer = require('multer');
 const bodyParser = require('body-parser');
 // Initialize app and middleware
 const app = express();
-app.disable('x-powered-by');
 
 app.use(cors({
     origin: 'https://capitalhillsdevelopments.com',  // Your allowed origin
@@ -17,9 +16,7 @@ app.use(cors({
     allowedHeaders: ['Authorization', 'Content-Type'],  // Allowed headers
     credentials: true  // Allow credentials
 }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/uploads', express.static('uploads')); // Serve uploaded files
+
 app.use((req, res, next) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     next();
@@ -110,16 +107,7 @@ const unitSchema = new mongoose.Schema({
 
 
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        // Set the destination to public_html directly
-        cb(null, path.join(__dirname, 'public_html')); // Adjust this path if needed
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Save file with a unique name
-    }
-});
-const upload = multer({ storage });
+
 // Route to get data for a specific project within a city
 // Load projects based on city
 app.get('/units/:city', async (req, res) => {
