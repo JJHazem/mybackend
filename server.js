@@ -221,58 +221,7 @@ app.post('/users/login', async (req, res) => {
     }
 });
 // Add a new project
-app.post('/units/:city/projects', upload.array('unitImage', 5), async (req, res) => {
-    try {
-        const project = new Project({
-            name: req.body.name,
-            city: req.params.city,
-            overview: req.body.overview,
-            units: req.body.units.map((unit, index) => ({
-                name: unit.unitName,
-                type: unit.unitType,
-                rooms: unit.unitRooms,
-                area: unit.unitArea,
-                image: req.files[index] ? `/uploads/${req.files[index].filename}` : null // Use the URL accessible from public_html
-            })),
-        });
 
-        await project.save();
-        res.status(201).json(project);
-    } catch (error) {
-        console.error('Error adding project:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
-
-// Edit an existing project
-app.put('/units/:city/projects/:name', upload.array('unitImage', 5), async (req, res) => {
-    try {
-        const updatedProject = await Project.findOneAndUpdate(
-            { city: req.params.city, name: req.params.name },
-            {
-                name: req.body.name,
-                overview: req.body.overview,
-                units: req.body.units.map((unit, index) => ({
-                    name: unit.unitName,
-                    type: unit.unitType,
-                    rooms: unit.unitRooms,
-                    area: unit.unitArea,
-                    image: req.files[index] ? `/uploads/${req.files[index].filename}` : null // Update the URL for the image
-                }))
-            },
-            { new: true } // Return the updated document
-        );
-
-        if (updatedProject) {
-            res.json(updatedProject);
-        } else {
-            res.status(404).json({ message: 'Project not found' });
-        }
-    } catch (error) {
-        console.error('Error updating project:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on https://it-eg.org:3000');
