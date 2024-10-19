@@ -7,12 +7,16 @@ const port = 3000;
 // Initialize app and middleware
 const app = express();
 
-app.use(cors({
-    origin: 'https://capitalhillsdevelopments.com',
-    methods: 'GET,POST,OPTIONS',
-    allowedHeaders: 'Content-Type,Authorization',
-    credentials: true
-}));
+const corsOptions = {
+    origin: ['https://capitalhillsdevelopments.com', 'http://capitalhillsdevelopments.com'], // Allow both HTTPS and HTTP
+    methods: 'GET, POST, OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
+    credentials: true,
+};
+
+// Use CORS middleware
+app.use(cors(corsOptions));
+
 // Connect to MongoDB (replace with your actual MongoDB URI)
 mongoose.connect('mongodb://37.148.206.181:27017/capital', {
     useNewUrlParser: true,
