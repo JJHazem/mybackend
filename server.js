@@ -108,30 +108,7 @@ const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
 
 // Route to get data for a specific project within a city
 // Load projects based on city
-app.get('/units/:city', async (req, res) => {
-    try {
-        const projects = await Project.find({ city: req.params.city });
-        res.json({ projects });
-    } catch (error) {
-        console.error('Error fetching projects:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
 
-// Load specific project data
-app.get('/units/:city/projects/:name', async (req, res) => {
-    try {
-        const project = await Project.findOne({ city: req.params.city, name: req.params.name });
-        if (project) {
-            res.json(project);
-        } else {
-            res.status(404).json({ message: 'Project not found' });
-        }
-    } catch (error) {
-        console.error('Error fetching project data:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
 app.get('/units/:cityName/projects/:projectName', async (req, res) => {
     const { cityName, projectName } = req.params;
     console.log('Received city name:', cityName);
