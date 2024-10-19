@@ -2,31 +2,27 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
 const cors = require('cors');
 const port = 3000;
-
 // Initialize app and middleware
 const app = express();
 
-app.use(cors({
-    origin: 'https://capitalhillsdevelopments.com',  // Your allowed origin
-    methods: ['GET', 'POST', 'PUT', 'OPTIONS'],  // Allowed HTTP methods
-    allowedHeaders: ['Authorization', 'Content-Type'],  // Allowed headers
-    credentials: true  // Allow credentials
-}));
-
-app.use((req, res, next) => {
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    next();
-});
+app.use(
+    cors({origin: "*",
+    })
+)
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
-mongoose.connect('mongodb://37.148.206.181:27017/capital', {
+mongoose.connect('mongodb://localhost:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
+
+
+
 
 
 
@@ -107,8 +103,6 @@ const unitSchema = new mongoose.Schema({
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
 
 // Route to get data for a specific project within a city
-// Load projects based on city
-
 app.get('/units/:cityName/projects/:projectName', async (req, res) => {
     const { cityName, projectName } = req.params;
     console.log('Received city name:', cityName);
@@ -197,9 +191,8 @@ app.post('/users/login', async (req, res) => {
         res.status(500).json({ error: 'Error logging in' });
     }
 });
-// Add a new project
 
 // Start the server
 app.listen(3000, () => {
-    console.log('Server is running on https://it-eg.org:3000');
+    console.log('Server is running on https://chd-egypt.com:3000');
 });
