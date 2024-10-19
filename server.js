@@ -3,10 +3,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-const path = require('path');
 const port = 3000;
-const multer = require('multer');
-const bodyParser = require('body-parser');
+
 // Initialize app and middleware
 const app = express();
 
