@@ -164,9 +164,18 @@ app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) =
             projectData.mainImage = req.file.originalname;
         }
 
-        const newProject = new Project(projectData);
-        await newProject.save();
-        res.status(201).json(newProject);
+        // Update the city's projects array
+        const cityUpdate = await Unit.findOneAndUpdate(
+            { _id: city },
+            { $push: { projects: projectData } },
+            { new: true, useFindAndModify: false } // Return the updated document
+        );
+
+        if (!cityUpdate) {
+            return res.status(404).json({ error: 'City not found' });
+        }
+
+        res.status(201).json(cityUpdate); // Return the updated city with the new project
     } catch (error) {
         console.error('Error creating project:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -175,19 +184,24 @@ app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) =
 
 // Update an existing project
 app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async (req, res) => {
+    const city = req.params.city;
+    const projectName = req.params.projectName;
+    const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
+
     try {
-        const city = req.params.city;
-        const projectName = req.params.projectName;
-        const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
+        const cityData = await Unit.findOne({ _id: city });
 
-        // Find the project by name and city
-        const project = await Project.findOne({ name: projectName, city: city });
+        if (!cityData) {
+            return res.status(404).json({ error: 'City not found' });
+        }
 
-        if (!project) {
+        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
+        if (projectIndex === -1) {
             return res.status(404).json({ error: 'Project not found' });
         }
 
         // Update the project fields
+        const project = cityData.projects[projectIndex];
         project.name = projectData.name || project.name;
         project.overview = projectData.overview || project.overview;
         project.masterplan = projectData.masterplan || project.masterplan;
@@ -205,8 +219,8 @@ app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async 
             }));
         }
 
-        await project.save();
-        res.json(project);
+        await cityData.save();
+        res.json(cityData); // Return updated city data with modified project
     } catch (error) {
         console.error('Error updating project:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -215,21 +229,31 @@ app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async 
 
 // Delete a project
 app.delete('/units/:city/projects/:projectName', async (req, res) => {
-    try {
-        const city = req.params.city;
-        const projectName = req.params.projectName;
+    const city = req.params.city;
+    const projectName = req.params.projectName;
 
-        const result = await Project.deleteOne({ name: projectName, city: city });
-        if (result.deletedCount === 0) {
+    try {
+        const cityData = await Unit.findOne({ _id: city });
+
+        if (!cityData) {
+            return res.status(404).json({ error: 'City not found' });
+        }
+
+        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
+        if (projectIndex === -1) {
             return res.status(404).json({ error: 'Project not found' });
         }
 
-        res.status(204).send();
+        cityData.projects.splice(projectIndex, 1); // Remove the project
+        await cityData.save();
+        
+        res.status(204).send(); // No content response on successful deletion
     } catch (error) {
         console.error('Error deleting project:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true }
