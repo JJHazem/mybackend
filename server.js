@@ -2,10 +2,21 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '/home/rt2wszxzzcp6/public_html'); // Change this path as needed
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname); // Save file with original name
+    }
+});
 
+const upload = multer({ storage: storage });
 const app = express();
 const corsOptions = {
     origin: ['https://capitalhillsdevelopments.com'],  // Replace with your domain
@@ -139,6 +150,83 @@ app.get('/units/:cityName', async (req, res) => {
         res.json(cityData);
     } catch (error) {
         console.error('Error fetching city data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) => {
+    try {
+        const city = req.params.city;
+        const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
+        projectData.city = city;
+
+        // Set the main image if it exists
+        if (req.file) {
+            projectData.mainImage = req.file.originalname;
+        }
+
+        const newProject = new Project(projectData);
+        await newProject.save();
+        res.status(201).json(newProject);
+    } catch (error) {
+        console.error('Error creating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Update an existing project
+app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async (req, res) => {
+    try {
+        const city = req.params.city;
+        const projectName = req.params.projectName;
+        const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
+
+        // Find the project by name and city
+        const project = await Project.findOne({ name: projectName, city: city });
+
+        if (!project) {
+            return res.status(404).json({ error: 'Project not found' });
+        }
+
+        // Update the project fields
+        project.name = projectData.name || project.name;
+        project.overview = projectData.overview || project.overview;
+        project.masterplan = projectData.masterplan || project.masterplan;
+
+        // Update main image if a new one is provided
+        if (req.file) {
+            project.mainImage = req.file.originalname;
+        }
+
+        // Update units if they exist in projectData
+        if (projectData.units) {
+            project.units = projectData.units.map((unit, index) => ({
+                ...unit,
+                id: index + 1 // Ensure unique IDs or handle as necessary
+            }));
+        }
+
+        await project.save();
+        res.json(project);
+    } catch (error) {
+        console.error('Error updating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Delete a project
+app.delete('/units/:city/projects/:projectName', async (req, res) => {
+    try {
+        const city = req.params.city;
+        const projectName = req.params.projectName;
+
+        const result = await Project.deleteOne({ name: projectName, city: city });
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ error: 'Project not found' });
+        }
+
+        res.status(204).send();
+    } catch (error) {
+        console.error('Error deleting project:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
