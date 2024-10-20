@@ -2,12 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const username = 'hazem'; // Replace with your actual username
-const password = 'CHDahmed135'; // Replace with your actual password
-const dbName = 'capital';
+
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
+const username = 'hazem'; // Replace with your actual username
+const password = 'CHDahmed135'; // Replace with your actual password
+const dbName = 'capital';
 const app = express();
 const corsOptions = {
     origin: ['https://capitalhillsdevelopments.com'],  // Replace with your domain
