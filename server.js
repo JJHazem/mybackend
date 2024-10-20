@@ -155,7 +155,7 @@ app.get('/units/:cityName', async (req, res) => {
 });
 app.post('/units/:cityName/projects', upload.single('mainImage'), async (req, res) => {
     try {
-        const city = req.params.city;
+        const city = req.params.cityName;
         const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
         projectData.city = city;
 
@@ -184,7 +184,7 @@ app.post('/units/:cityName/projects', upload.single('mainImage'), async (req, re
 
 // Update an existing project
 app.put('/units/:cityName/projects/:projectName', upload.single('mainImage'), async (req, res) => {
-    const city = req.params.city;
+    const city = req.params.cityName;
     const projectName = req.params.projectName;
     const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
 
@@ -229,7 +229,7 @@ app.put('/units/:cityName/projects/:projectName', upload.single('mainImage'), as
 
 // Delete a project
 app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
-    const city = req.params.city;
+    const city = req.params.cityName;
     const projectName = req.params.projectName;
 
     try {
