@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
@@ -18,10 +17,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-// Connect to MongoDB (replace with your actual MongoDB URI)
-
-
-mongoose.connect('mongodb://hazem:CHDahmed135@localhost:27017/capital', {
+mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
