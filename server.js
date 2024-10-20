@@ -22,17 +22,12 @@ app.use(cors(corsOptions));
 // Connect to MongoDB (replace with your actual MongoDB URI)
 
 
-mongoose.connect(`mongodb://${username}:${password}@localhost:27017/${dbName}`, { 
+mongoose.connect(`mongodb://${username}:${password}@37.148.206.181:27017/${dbName}`, { 
     useNewUrlParser: true,
     useUnifiedTopology: true 
 })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
-
-
-
-
-
 
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
