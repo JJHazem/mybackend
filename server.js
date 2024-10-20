@@ -18,19 +18,25 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 const app = express();
+const bodyParser = require('body-parser');
 const corsOptions = {
     origin: ['https://capitalhillsdevelopments.com'],  // Replace with your domain
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
     allowedHeaders: ['Authorization', 'Content-Type'],  // Allowed headers
     credentials: true  // Allow cookies/auth tokens to be sent
 };
-app.use(express.json({ limit: '10mb' })); 
 app.use(cors(corsOptions));
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://capitalhillsdevelopments.com"); // Adjust to the origin you want to allow
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+app.use(bodyParser.json());
+app.use(express.json({ limit: '10mb' })); 
+
+
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
