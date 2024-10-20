@@ -6,9 +6,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
-const username = 'hazem'; // Replace with your actual username
-const password = 'CHDahmed135'; // Replace with your actual password
-const dbName = 'capital';
+
 const app = express();
 const corsOptions = {
     origin: ['https://capitalhillsdevelopments.com'],  // Replace with your domain
@@ -23,12 +21,13 @@ app.use(cors(corsOptions));
 // Connect to MongoDB (replace with your actual MongoDB URI)
 
 
-mongoose.connect(`mongodb://${username}:${password}@37.148.206.181:27017/${dbName}`, { 
+mongoose.connect('mongodb://localhost:27017/capital', {
     useNewUrlParser: true,
-    useUnifiedTopology: true 
+    useUnifiedTopology: true
 })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
