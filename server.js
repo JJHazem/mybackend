@@ -153,7 +153,7 @@ app.get('/units/:cityName', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) => {
+app.post('/units/:cityName/projects', upload.single('mainImage'), async (req, res) => {
     try {
         const city = req.params.city;
         const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
@@ -183,7 +183,7 @@ app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) =
 });
 
 // Update an existing project
-app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async (req, res) => {
+app.put('/units/:cityName/projects/:projectName', upload.single('mainImage'), async (req, res) => {
     const city = req.params.city;
     const projectName = req.params.projectName;
     const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
@@ -228,7 +228,7 @@ app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async 
 });
 
 // Delete a project
-app.delete('/units/:city/projects/:projectName', async (req, res) => {
+app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
     const city = req.params.city;
     const projectName = req.params.projectName;
 
