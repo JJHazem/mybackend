@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const username = 'hazem'; // Replace with your actual username
+const password = 'CHDahmed135'; // Replace with your actual password
+const dbName = 'capital';
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
@@ -18,9 +20,11 @@ app.use(cors(corsOptions));
 
 
 // Connect to MongoDB (replace with your actual MongoDB URI)
-mongoose.connect('mongodb://localhost:27017/capital', {
+
+
+mongoose.connect(`mongodb://${username}:${password}@localhost:27017/${dbName}`, { 
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true 
 })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
