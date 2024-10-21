@@ -28,7 +28,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
+app.use(express.json()); // To parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
