@@ -16,7 +16,7 @@ const corsOptions = {
     credentials: true  // Allow cookies/auth tokens to be sent
 };
 app.use(cors(corsOptions));
-app.use(express.json()); 
+ 
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
