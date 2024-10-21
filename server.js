@@ -2,23 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
-const path = require('path');
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, '/home/rt2wszxzzcp6/public_html'); // Change this path as needed
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname); // Save file with original name
-    }
-});
 
-const upload = multer({ storage: storage });
+
 const app = express();
-const bodyParser = require('body-parser');
+
 const corsOptions = {
     origin: ['https://capitalhillsdevelopments.com'],  // Replace with your domain
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
@@ -26,8 +16,8 @@ const corsOptions = {
     credentials: true  // Allow cookies/auth tokens to be sent
 };
 app.use(cors(corsOptions));
-app.use(bodyParser.json());
-app.use(express.json({ limit: '10mb' })); 
+
+
 
 
 
@@ -156,106 +146,7 @@ app.get('/units/:cityName', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-app.post('/units/:cityName/projects', upload.single('mainImage'), async (req, res) => {
-    try {
-        const city = req.params.cityName;
-        const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
-        projectData.city = city;
 
-        // Set the main image if it exists
-        if (req.file) {
-            projectData.mainImage = req.file.originalname;
-        }
-
-        // Update the city's projects array
-        const cityUpdate = await Unit.findOneAndUpdate(
-            { _id: city },
-            { $push: { projects: projectData } },
-            { new: true, useFindAndModify: false } // Return the updated document
-        );
-
-        if (!cityUpdate) {
-            return res.status(404).json({ error: 'City not found' });
-        }
-
-        res.status(201).json(cityUpdate); // Return the updated city with the new project
-    } catch (error) {
-        console.error('Error creating project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-// Update an existing project
-app.put('/units/:cityName/projects/:projectName', upload.single('mainImage'), async (req, res) => {
-    const city = req.params.cityName;
-    const projectName = req.params.projectName;
-    const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
-
-    try {
-        const cityData = await Unit.findOne({ _id: city });
-
-        if (!cityData) {
-            return res.status(404).json({ error: 'City not found' });
-        }
-
-        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
-        if (projectIndex === -1) {
-            return res.status(404).json({ error: 'Project not found' });
-        }
-
-        // Update the project fields
-        const project = cityData.projects[projectIndex];
-        project.name = projectData.name || project.name;
-        project.overview = projectData.overview || project.overview;
-        project.masterplan = projectData.masterplan || project.masterplan;
-
-        // Update main image if a new one is provided
-        if (req.file) {
-            project.mainImage = req.file.originalname;
-        }
-
-        // Update units if they exist in projectData
-        if (projectData.units) {
-            project.units = projectData.units.map((unit, index) => ({
-                ...unit,
-                id: index + 1 // Ensure unique IDs or handle as necessary
-            }));
-        }
-
-        await cityData.save();
-        res.json(cityData); // Return updated city data with modified project
-    } catch (error) {
-        console.error('Error updating project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-// Delete a project
-app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
-    const city = req.params.cityName;
-    const projectName = req.params.projectName;
-
-    try {
-        const cityData = await Unit.findOne({ _id: city });
-
-        if (!cityData) {
-            return res.status(404).json({ error: 'City not found' });
-        }
-
-        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
-        if (projectIndex === -1) {
-            return res.status(404).json({ error: 'Project not found' });
-        }
-
-        cityData.projects.splice(projectIndex, 1); // Remove the project
-        await cityData.save();
-        
-        res.status(204).send(); // No content response on successful deletion
-    } catch (error) {
-        console.error('Error deleting project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
 
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
