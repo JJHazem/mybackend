@@ -1,7 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const multer = require('multer');
-const path = require('path');
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
@@ -16,20 +14,6 @@ const corsOptions = {
     credentials: true  // Allow cookies/auth tokens to be sent
 };
 app.use(cors(corsOptions));
- 
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, '/home/rt2wszxzzcp6/public_html'); // Change this path as needed
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname); // Save file with original name
-    }
-});
-
-const upload = multer({ storage: storage });
-app.use(express.json()); // To parse JSON bodies
-app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
@@ -158,7 +142,7 @@ app.get('/units/:cityName', async (req, res) => {
 });
 
 
-app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) => {
+app.post('/units/:city/projects', async (req, res) => {
     try {
         const city = req.params.city;
         const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
@@ -188,7 +172,7 @@ app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) =
 });
 
 // Update an existing project
-app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async (req, res) => {
+app.put('/units/:city/projects/:projectName', async (req, res) => {
     const city = req.params.city;
     const projectName = req.params.projectName;
     const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
