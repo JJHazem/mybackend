@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
@@ -16,9 +16,18 @@ const corsOptions = {
     credentials: true  // Allow cookies/auth tokens to be sent
 };
 app.use(cors(corsOptions));
+app.use(express.json()); 
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '/home/rt2wszxzzcp6/public_html'); // Change this path as needed
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname); // Save file with original name
+    }
+});
 
-
+const upload = multer({ storage: storage });
 
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
@@ -148,56 +157,106 @@ app.get('/units/:cityName', async (req, res) => {
 });
 
 
-
-const userSchema = new mongoose.Schema({
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-});
-
-const User = mongoose.model('User', userSchema);
-
-// Register Route
-app.post('/users/register', async (req, res) => {
-    const { email, password } = req.body;
-
+app.post('/units/:city/projects', upload.single('mainImage'), async (req, res) => {
     try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ email, password: hashedPassword });
-        await user.save();
-        res.status(201).send('User registered successfully');
-    } catch (error) {
-        console.error('Error registering user:', error);
-        res.status(500).json({ error: 'Error registering user' });
-    }
-});
+        const city = req.params.city;
+        const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
+        projectData.city = city;
 
-// Login Route
-app.post('/users/login', async (req, res) => {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).json({ error: 'Email and password are required' });
-    }
-
-    try {
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(400).json({ error: 'User not found' });
+        // Set the main image if it exists
+        if (req.file) {
+            projectData.mainImage = req.file.originalname;
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            return res.status(400).json({ error: 'Invalid credentials' });
+        // Update the city's projects array
+        const cityUpdate = await Unit.findOneAndUpdate(
+            { _id: city },
+            { $push: { projects: projectData } },
+            { new: true, useFindAndModify: false } // Return the updated document
+        );
+
+        if (!cityUpdate) {
+            return res.status(404).json({ error: 'City not found' });
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret');
-        res.status(200).json({ token });
+        res.status(201).json(cityUpdate); // Return the updated city with the new project
     } catch (error) {
-        console.error('Error logging in:', error);  // Log the exact error
-        res.status(500).json({ error: 'Error logging in' });
+        console.error('Error creating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
+// Update an existing project
+app.put('/units/:city/projects/:projectName', upload.single('mainImage'), async (req, res) => {
+    const city = req.params.city;
+    const projectName = req.params.projectName;
+    const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
+
+    try {
+        const cityData = await Unit.findOne({ _id: city });
+
+        if (!cityData) {
+            return res.status(404).json({ error: 'City not found' });
+        }
+
+        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
+        if (projectIndex === -1) {
+            return res.status(404).json({ error: 'Project not found' });
+        }
+
+        // Update the project fields
+        const project = cityData.projects[projectIndex];
+        project.name = projectData.name || project.name;
+        project.overview = projectData.overview || project.overview;
+        project.masterplan = projectData.masterplan || project.masterplan;
+
+        // Update main image if a new one is provided
+        if (req.file) {
+            project.mainImage = req.file.originalname;
+        }
+
+        // Update units if they exist in projectData
+        if (projectData.units) {
+            project.units = projectData.units.map((unit, index) => ({
+                ...unit,
+                id: index + 1 // Ensure unique IDs or handle as necessary
+            }));
+        }
+
+        await cityData.save();
+        res.json(cityData); // Return updated city data with modified project
+    } catch (error) {
+        console.error('Error updating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Delete a project
+app.delete('/units/:city/projects/:projectName', async (req, res) => {
+    const city = req.params.city;
+    const projectName = req.params.projectName;
+
+    try {
+        const cityData = await Unit.findOne({ _id: city });
+
+        if (!cityData) {
+            return res.status(404).json({ error: 'City not found' });
+        }
+
+        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
+        if (projectIndex === -1) {
+            return res.status(404).json({ error: 'Project not found' });
+        }
+
+        cityData.projects.splice(projectIndex, 1); // Remove the project
+        await cityData.save();
+        
+        res.status(204).send(); // No content response on successful deletion
+    } catch (error) {
+        console.error('Error deleting project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on https://chd-egypt.com:3000');
