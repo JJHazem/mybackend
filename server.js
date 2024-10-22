@@ -146,7 +146,8 @@ app.get('/units/:cityName', async (req, res) => {
 
 app.post('/units/:cityName/projects', async (req, res) => {
     const city = req.params.cityName;
-    const projectData = req.body;  // Make sure you're sending valid JSON
+    const projectData = req.body; // Ensure the projectData matches your schema
+
     try {
         const cityUpdate = await Unit.findOneAndUpdate(
             { _id: city },
@@ -164,7 +165,7 @@ app.post('/units/:cityName/projects', async (req, res) => {
 });
 
 // PUT route to update an existing project
-app.put('/units/:cityName/projects/:projectName', async (req, res) => { 
+app.put('/units/:cityName/projects/:projectName', async (req, res) => {
     const city = req.params.cityName;
     const projectName = req.params.projectName;
     const projectData = req.body;
@@ -180,9 +181,7 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
             return res.status(404).json({ error: 'Project not found' });
         }
 
-        const project = cityData.projects[projectIndex];
-        Object.assign(project, projectData);  // Update project fields
-
+        Object.assign(cityData.projects[projectIndex], projectData); // Update project fields
         await cityData.save();
         res.json(cityData);
     } catch (error) {
@@ -207,9 +206,9 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
             return res.status(404).json({ error: 'Project not found' });
         }
 
-        cityData.projects.splice(projectIndex, 1);  // Remove the project
+        cityData.projects.splice(projectIndex, 1); // Remove the project
         await cityData.save();
-        res.status(204).send();  // Successful deletion, no content
+        res.status(204).send(); // Successful deletion, no content
     } catch (error) {
         console.error('Error deleting project:', error);
         res.status(500).json({ error: 'Internal Server Error' });
