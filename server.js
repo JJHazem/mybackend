@@ -144,11 +144,11 @@ app.get('/units/:cityName', async (req, res) => {
 });
 
 
-app.post('/units/:city/projects', async (req, res) => {
+app.post('/units/:cityName/projects', async (req, res) => {
     console.log('Received city:', req.params.city);
     console.log('Received project data:', req.body);
     try {
-        const city = req.params.city;
+        const city = req.params.cityName;
         const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
         projectData.city = city;
 
@@ -171,8 +171,8 @@ app.post('/units/:city/projects', async (req, res) => {
 });
 
 // Update an existing project
-app.put('/units/:city/projects/:projectName', async (req, res) => {
-    const city = req.params.city;
+app.put('/units/:cityName/projects/:projectName', async (req, res) => {
+    const city = req.params.cityName;
     const projectName = req.params.projectName;
     const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
 
@@ -213,8 +213,8 @@ app.put('/units/:city/projects/:projectName', async (req, res) => {
 });
 
 // Delete a project
-app.delete('/units/:city/projects/:projectName', async (req, res) => {
-    const city = req.params.city;
+app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
+    const city = req.params.cityName;
     const projectName = req.params.projectName;
 
     try {
