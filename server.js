@@ -148,11 +148,6 @@ app.post('/units/:city/projects', async (req, res) => {
         const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
         projectData.city = city;
 
-        // Set the main image if it exists
-        if (req.file) {
-            projectData.mainImage = req.file.originalname;
-        }
-
         // Update the city's projects array
         const cityUpdate = await Unit.findOneAndUpdate(
             { _id: city },
@@ -195,10 +190,7 @@ app.put('/units/:city/projects/:projectName', async (req, res) => {
         project.overview = projectData.overview || project.overview;
         project.masterplan = projectData.masterplan || project.masterplan;
 
-        // Update main image if a new one is provided
-        if (req.file) {
-            project.mainImage = req.file.originalname;
-        }
+
 
         // Update units if they exist in projectData
         if (projectData.units) {
