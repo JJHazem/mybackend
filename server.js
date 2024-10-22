@@ -170,8 +170,7 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
     const projectData = req.body;
 
     try {
-        // Assuming you're matching by city name, adjust if needed
-        const cityData = await Unit.findOne({ name: city }); 
+        const cityData = await Unit.findOne({ _id: city });
         if (!cityData) {
             return res.status(404).json({ error: 'City not found' });
         }
@@ -181,16 +180,14 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
             return res.status(404).json({ error: 'Project not found' });
         }
 
-        // You might want to validate projectData here before assigning
         const project = cityData.projects[projectIndex];
         Object.assign(project, projectData);  // Update project fields
 
-        // Save the updated city data
         await cityData.save();
         res.json(cityData);
     } catch (error) {
-        console.error('Error updating project:', error.message); // Log the specific error message
-        res.status(500).json({ error: 'Internal Server Error', details: error.message });
+        console.error('Error updating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
@@ -200,7 +197,7 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
     const projectName = req.params.projectName;
 
     try {
-        const cityData = await Unit.findOne({ name: city }); // Adjust if necessary
+        const cityData = await Unit.findOne({ _id: city });
         if (!cityData) {
             return res.status(404).json({ error: 'City not found' });
         }
@@ -214,11 +211,10 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
         await cityData.save();
         res.status(204).send();  // Successful deletion, no content
     } catch (error) {
-        console.error('Error deleting project:', error.message); // Log the specific error message
-        res.status(500).json({ error: 'Internal Server Error', details: error.message });
+        console.error('Error deleting project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on https://vps.chd-egypt.com:3000');
