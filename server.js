@@ -14,6 +14,7 @@ const corsOptions = {
     credentials: true  // Allow cookies/auth tokens to be sent
 };
 app.use(cors(corsOptions));
+app.use(express.json()); // For parsing application/json
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
@@ -143,6 +144,8 @@ app.get('/units/:cityName', async (req, res) => {
 
 
 app.post('/units/:city/projects', async (req, res) => {
+    console.log('Received city:', req.params.city);
+    console.log('Received project data:', req.body);
     try {
         const city = req.params.city;
         const projectData = JSON.parse(req.body.projectData); // Assuming project data is sent as JSON
