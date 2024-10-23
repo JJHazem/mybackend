@@ -156,7 +156,7 @@ app.get('/units/:cityName', async (req, res) => {
 });
 
 
-app.post('/units/:cityName/projects', async (req, res) => {
+app.post('/cities/:city/projects', async (req, res) => {
     const city = req.params.city;
     const projectData = req.body;
     const newProject = new Project({ city, ...projectData });
@@ -168,7 +168,7 @@ app.post('/units/:cityName/projects', async (req, res) => {
 
 
 // PUT route to update an existing project
-app.put('/units/:cityName/projects/:projectName', async (req, res) => {
+app.put('/projects/:projectId', async (req, res) => {
     const projectId = req.params.projectId;
     const updates = req.body;
     const updatedProject = await Project.findByIdAndUpdate(projectId, updates, { new: true });
@@ -180,7 +180,7 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
 
 
 // DELETE route to remove a project
-app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
+app.delete('/projects/:projectId', async (req, res) => {
     const projectId = req.params.projectId;
     await Project.findByIdAndDelete(projectId);
     res.json({ message: 'Project deleted successfully' });
