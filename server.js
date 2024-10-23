@@ -1,10 +1,17 @@
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const port = 3000;
 // Initialize app and middleware
 
 const app = express();
+
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/vps.chd-egypt.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/vps.chd-egypt.com/fullchain.pem')
+};
 
 const corsOptions = {
     origin: 'https://capitalhillsdevelopments.com', // Replace with your domain
@@ -259,6 +266,6 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
 
 
 // Start the server
-app.listen(3000, () => {
-    console.log('Server is running on https://vps.chd-egypt.com:3000');
+https.createServer(options, app).listen(3000, () => {
+    console.log('HTTPS Server running on port 3000');
 });
