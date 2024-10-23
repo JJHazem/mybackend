@@ -8,14 +8,29 @@ const port = 3000;
 const app = express();
 
 const corsOptions = {
-    origin: ['https://capitalhillsdevelopments.com'],  // Replace with your domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
+    origin: (origin, callback) => {
+        // Allow only specific origins
+        const allowedOrigins = ['https://capitalhillsdevelopments.com', 'https://vps.chd-egypt.com'];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true); // Allow the origin
+        } else {
+            callback(new Error('Not allowed by CORS')); // Disallow the origin
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed HTTP methods
     allowedHeaders: ['Authorization', 'Content-Type'],  // Allowed headers
-    credentials: true  // Allow cookies/auth tokens to be sent
+    credentials: true,  // Allow cookies/auth tokens to be sent
 };
+
+// Use CORS with the specified options
 app.use(cors(corsOptions));
+
+// Handle preflight requests
 app.options('*', cors(corsOptions));
-app.use(express.json()); // For parsing application/json
+
+// Middleware to parse application/json
+app.use(express.json());
+
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
