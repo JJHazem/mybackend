@@ -146,7 +146,14 @@ app.get('/units/:cityName', async (req, res) => {
 
 app.post('/units/:cityName/projects', async (req, res) => {
     const city = req.params.cityName;
-    const projectData = req.body; // Ensure the projectData matches your schema
+    const projectData = req.body; // Ensure this matches your schema
+
+    console.log('Received project data:', projectData);
+
+    // Validate required fields
+    if (!projectData.name || !projectData.overview) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
 
     try {
         const cityUpdate = await Unit.findOneAndUpdate(
@@ -154,13 +161,15 @@ app.post('/units/:cityName/projects', async (req, res) => {
             { $push: { projects: projectData } },
             { new: true, useFindAndModify: false }
         );
+
         if (!cityUpdate) {
             return res.status(404).json({ error: 'City not found' });
         }
+
         res.status(201).json(cityUpdate);
     } catch (error) {
-        console.error('Error creating project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error creating project:', error.message);
+        res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
 
@@ -169,6 +178,8 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
     const city = req.params.cityName;
     const projectName = req.params.projectName;
     const projectData = req.body;
+
+    console.log('Updating project:', projectName, 'with data:', projectData);
 
     try {
         const cityData = await Unit.findOne({ _id: city });
@@ -183,17 +194,21 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
 
         Object.assign(cityData.projects[projectIndex], projectData); // Update project fields
         await cityData.save();
+
         res.json(cityData);
     } catch (error) {
-        console.error('Error updating project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error updating project:', error.message);
+        res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
+
 
 // DELETE route to remove a project
 app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
     const city = req.params.cityName;
     const projectName = req.params.projectName;
+
+    console.log('Deleting project:', projectName);
 
     try {
         const cityData = await Unit.findOne({ _id: city });
@@ -208,12 +223,14 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
 
         cityData.projects.splice(projectIndex, 1); // Remove the project
         await cityData.save();
+
         res.status(204).send(); // Successful deletion, no content
     } catch (error) {
-        console.error('Error deleting project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error deleting project:', error.message);
+        res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
+
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on https://vps.chd-egypt.com:3000');
