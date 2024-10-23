@@ -7,14 +7,26 @@ const port = 3000;
 const app = express();
 
 const corsOptions = {
-    origin: ['https://capitalhillsdevelopments.com'],  // Your domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed HTTP methods
-    allowedHeaders: ['Authorization', 'Content-Type'],  // Allowed headers
-    credentials: true  // Allow cookies/auth tokens to be sent
+    origin: 'https://capitalhillsdevelopments.com', // Replace with your domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Authorization', 'Content-Type'], // Allowed headers
+    credentials: true, // Allow cookies/auth tokens to be sent
 };
+
+// Use CORS middleware
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight requests
-app.use(express.json());
+
+// Custom handler for OPTIONS requests
+app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'https://capitalhillsdevelopments.com');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+    res.sendStatus(204); // No Content response
+});
+
+// Body parser middleware
+app.use(express.json()); // For parsing application/json
+
 
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
