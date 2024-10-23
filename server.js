@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const port = 3000;
-// Initialize app and middleware
 
+// Initialize app and middleware
 const app = express();
 
 const corsOptions = {
@@ -27,14 +27,12 @@ app.options('*', (req, res) => {
 // Body parser middleware
 app.use(express.json()); // For parsing application/json
 
-
 mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
-
 
 // Define schemas for English and Arabic translations
 const translationSchema = new mongoose.Schema({
@@ -61,10 +59,7 @@ app.get('/translations/:lang', async (req, res) => {
     }
 
     try {
-        // Fetch all translations from the collection
         const translations = await TranslationModel.find({});
-        
-        // Convert the translations to a key-value pair object
         const translationObject = {};
         translations.forEach(translation => {
             translationObject[translation.name] = translation.value;
@@ -77,64 +72,58 @@ app.get('/translations/:lang', async (req, res) => {
     }
 });
 
-
 // Define your schema and model for the 'units' collection
 const unitSchema = new mongoose.Schema({
-    _id: { type: String, required: true },  // The city ID (e.g., 'new-cairo')
+    _id: { type: String, required: true },  // The city ID (e.g., 'new-capital')
     name: { type: String, required: true },
-    image: { type: String, required: true }, // City name (e.g., 'New Cairo')
     projects: [
         {
+            _id: { type: mongoose.Schema.Types.ObjectId, required: true }, // Use ObjectId for project ID
             name: { type: String, required: true },
             overview: { type: String, required: true },
-            masterplan: { type: String, required: true },
+            masterplanImage: { type: String, required: true },
+            imageUrl: { type: String, required: true },
+            amenitiesImages: [String],
+            constructionImages: [String],
+            constructionVideo: String,
+            brochure: String,
             units: [
                 {
+                    _id: { type: mongoose.Schema.Types.ObjectId, required: true }, // Use ObjectId for unit ID
                     id: { type: Number, required: true },
                     type: { type: String, required: true },
                     rooms: { type: Number, required: true },
                     area: { type: Number, required: true },
                     image: { type: String, required: true },
-                    modal1:{ type: String, required: true },
-                    modal2:{ type: String, required: true },
-                    modal3:{ type: String, required: true },
+                    modal1: { type: String, required: true },
+                    modal2: { type: String, required: true },
+                    modal3: { type: String, required: true },
                     name: { type: String, required: true },
                     details: { type: String, required: true }
                 }
-            ],
-            amenities: { type: String, required: true },
-            construction: { type: String, required: true },
-            brochure: { type: String, required: true }
+            ]
         }
     ]
 });
 
-
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
 
 // Route to get data for a specific project within a city
-app.get('/units/:cityName/projects/:projectName', async (req, res) => {
-    const { cityName, projectName } = req.params;
-    console.log('Received city name:', cityName);
-    console.log('Received project name:', projectName);
-    
+app.get('/units/:cityName/projects/:projectId', async (req, res) => {
+    const { cityName, projectId } = req.params;
     try {
         const cityData = await Unit.findOne({ _id: cityName }).exec();
         if (!cityData) {
-            console.log('No city data found for:', cityName);
-            return res.json(null);  // Return null if no data is found
+            return res.status(404).json({ error: `City ${cityName} not found` });
         }
 
-        // Find the specific project by its name
-        const projectData = cityData.projects.find(project => project.name === projectName);
-        
+        // Find the specific project by its _id
+        const projectData = cityData.projects.find(project => project._id.toString() === projectId);
         if (!projectData) {
-            console.log(`No project data found for: ${projectName} in ${cityName}`);
-            return res.json(null);
+            return res.status(404).json({ error: `Project not found in ${cityName}` });
         }
 
-        console.log('Project data fetched:', projectData);
-        res.json(projectData);  // Send the specific project data
+        res.json(projectData);
     } catch (error) {
         console.error('Error fetching city or project data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -146,7 +135,6 @@ app.get('/units/:cityName', async (req, res) => {
     const cityName = req.params.cityName;
     try {
         const cityData = await Unit.findOne({ _id: cityName }).exec();
-        console.log(cityData); // Log the data to check if it includes the units
         res.json(cityData);
     } catch (error) {
         console.error('Error fetching city data:', error);
@@ -154,7 +142,7 @@ app.get('/units/:cityName', async (req, res) => {
     }
 });
 
-
+// POST route to add a new project to a city
 app.post('/units/:cityName/projects', async (req, res) => {
     const { cityName } = req.params;
     const newProjectData = req.body;
@@ -173,6 +161,7 @@ app.post('/units/:cityName/projects', async (req, res) => {
         }
 
         // Add the new project
+        newProjectData._id = new mongoose.Types.ObjectId(); // Generate a new ObjectId for the project
         cityData.projects.push(newProjectData);
 
         // Save the updated city data
@@ -185,12 +174,9 @@ app.post('/units/:cityName/projects', async (req, res) => {
     }
 });
 
-
-
-
 // PUT route to update an existing project
-app.put('/units/:cityName/projects/:projectName', async (req, res) => {
-    const { cityName, projectName } = req.params;
+app.put('/units/:cityName/projects/:projectId', async (req, res) => {
+    const { cityName, projectId } = req.params;
     const updatedProjectData = req.body;
 
     try {
@@ -200,10 +186,10 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
             return res.status(404).json({ error: `City ${cityName} not found` });
         }
 
-        // Find the specific project
-        const project = cityData.projects.find(project => project.name === projectName);
+        // Find the specific project by its _id
+        const project = cityData.projects.find(project => project._id.toString() === projectId);
         if (!project) {
-            return res.status(404).json({ error: `Project ${projectName} not found in ${cityName}` });
+            return res.status(404).json({ error: `Project not found in ${cityName}` });
         }
 
         // Update the project with new data
@@ -219,13 +205,9 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
     }
 });
 
-
-
-
-
 // DELETE route to remove a project
-app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
-    const { cityName, projectName } = req.params;
+app.delete('/units/:cityName/projects/:projectId', async (req, res) => {
+    const { cityName, projectId } = req.params;
 
     try {
         // Find the city
@@ -234,10 +216,10 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
             return res.status(404).json({ error: `City ${cityName} not found` });
         }
 
-        // Find the index of the project
-        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
+        // Find the index of the project by its _id
+        const projectIndex = cityData.projects.findIndex(project => project._id.toString() === projectId);
         if (projectIndex === -1) {
-            return res.status(404).json({ error: `Project ${projectName} not found in ${cityName}` });
+            return res.status(404).json({ error: `Project not found in ${cityName}` });
         }
 
         // Remove the project from the projects array
@@ -253,10 +235,7 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
     }
 });
 
-
-
-
 // Start the server
-app.listen(3000, () => {
-    console.log('Server is running on https://vps.chd-egypt.com:3000');
+app.listen(port, () => {
+    console.log(`Server is running on http://vps.chd-egypt.com${port}`);
 });
