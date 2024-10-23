@@ -145,30 +145,53 @@ app.get('/units/:cityName', async (req, res) => {
 
 
 app.post('/units/:cityName/projects', async (req, res) => {
-    const city = req.params.cityName;
-    const projectData = req.body;
+    const cityName = req.params.cityName;
+    const newProject = req.body;
 
-    if (!projectData.name || !projectData.overview) {
-        return res.status(400).json({ error: 'Missing required fields' });
+    // Check for required fields for the project and units
+    const requiredFields = [
+        'name', 'overview', 'masterplanImage', 'imageUrl', 
+        'amenitiesImages', 'constructionImages', 'units', 
+        'constructionVideo', 'brochure'
+    ];
+
+    // Fields required within each unit
+    const unitRequiredFields = [
+        'id', 'type', 'rooms', 'area', 'image', 'modal1', 'modal2', 'modal3', 'name', 'details'
+    ];
+
+    // Validate that required project fields exist
+    const missingFields = requiredFields.filter(field => !newProject[field]);
+
+    if (missingFields.length > 0) {
+        return res.status(400).json({ error: `Missing required fields: ${missingFields.join(', ')}` });
+    }
+
+    // Validate that each unit contains required fields
+    for (let i = 0; i < newProject.units.length; i++) {
+        const unit = newProject.units[i];
+        const missingUnitFields = unitRequiredFields.filter(field => !unit[field]);
+
+        if (missingUnitFields.length > 0) {
+            return res.status(400).json({ error: `Missing required unit fields in unit ${i + 1}: ${missingUnitFields.join(', ')}` });
+        }
     }
 
     try {
-        const cityData = await Unit.findOne({ _id: city });
+        // Find the city by its name (id)
+        const cityData = await Unit.findOne({ _id: cityName });
+
         if (!cityData) {
             return res.status(404).json({ error: 'City not found' });
         }
 
-        // Check for duplicate project name
-        const existingProject = cityData.projects.find(project => project.name === projectData.name);
-        if (existingProject) {
-            return res.status(409).json({ error: 'Project with this name already exists' });
-        }
+        // Add the new project to the city's projects array
+        cityData.projects.push(newProject);
 
-        // Add the project if it's not a duplicate
-        cityData.projects.push(projectData);
+        // Save the updated city data
         await cityData.save();
 
-        res.status(201).json(cityData);
+        res.status(201).json(newProject);  // Respond with the newly added project
     } catch (error) {
         console.error('Error adding project:', error.message);
         res.status(500).json({ error: 'Internal Server Error', details: error.message });
@@ -176,34 +199,44 @@ app.post('/units/:cityName/projects', async (req, res) => {
 });
 
 
+
 // PUT route to update an existing project
-app.put('/units/:cityName/projects/:projectName', async (req, res) => {
+app.put('/units/:cityName/projects/:projectId', async (req, res) => {
     const cityName = req.params.cityName;
-    const projectName = req.params.projectName;
+    const projectId = req.params.projectId;
     const updatedProjectData = req.body;
 
-    console.log(`Updating project "${projectName}" in city "${cityName}" with data:`, updatedProjectData);
+    // Validate that all required fields are present
+    const requiredProjectFields = [
+        'name', 'overview', 'masterplan', 'image', 'amenities', 'construction', 'units'
+    ];
+
+    const missingFields = requiredProjectFields.filter(field => !updatedProjectData[field]);
+
+    if (missingFields.length > 0) {
+        return res.status(400).json({ error: `Missing required fields: ${missingFields.join(', ')}` });
+    }
 
     try {
-        // Find the city
+        // Find the city and project to update
         const cityData = await Unit.findOne({ _id: cityName });
         if (!cityData) {
             return res.status(404).json({ error: 'City not found' });
         }
 
-        // Find the specific project within the city
-        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
-        if (projectIndex === -1) {
+        // Find the project to update by projectId
+        const project = cityData.projects.id(projectId);
+        if (!project) {
             return res.status(404).json({ error: 'Project not found' });
         }
 
-        // Merge the updated data into the existing project data
-        Object.assign(cityData.projects[projectIndex], updatedProjectData);
+        // Update project fields
+        project.set(updatedProjectData);
 
         // Save the updated city data
         await cityData.save();
 
-        res.json(cityData.projects[projectIndex]);  // Return the updated project data
+        res.status(200).json({ message: 'Project updated successfully', project });
     } catch (error) {
         console.error('Error updating project:', error.message);
         res.status(500).json({ error: 'Internal Server Error', details: error.message });
@@ -212,38 +245,38 @@ app.put('/units/:cityName/projects/:projectName', async (req, res) => {
 
 
 
-// DELETE route to remove a project
-app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
-    const cityName = req.params.cityName;
-    const projectName = req.params.projectName;
 
-    console.log(`Deleting project "${projectName}" from city "${cityName}"`);
+// DELETE route to remove a project
+app.delete('/units/:cityName/projects/:projectId', async (req, res) => {
+    const cityName = req.params.cityName;
+    const projectId = req.params.projectId;
 
     try {
-        // Find the city
+        // Find the city by its name
         const cityData = await Unit.findOne({ _id: cityName });
         if (!cityData) {
             return res.status(404).json({ error: 'City not found' });
         }
 
-        // Find the index of the project to delete
-        const projectIndex = cityData.projects.findIndex(project => project.name === projectName);
-        if (projectIndex === -1) {
+        // Remove the project with the given projectId
+        const project = cityData.projects.id(projectId);
+        if (!project) {
             return res.status(404).json({ error: 'Project not found' });
         }
 
-        // Remove the project from the city's projects array
-        cityData.projects.splice(projectIndex, 1);
+        // Remove the project
+        project.remove();
 
         // Save the updated city data
         await cityData.save();
 
-        res.status(204).send();  // Send a 204 status indicating successful deletion with no content
+        res.status(200).json({ message: 'Project deleted successfully' });
     } catch (error) {
         console.error('Error deleting project:', error.message);
         res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
+
 
 
 // Start the server
