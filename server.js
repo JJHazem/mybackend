@@ -9,7 +9,7 @@ const app = express();
 
 const corsOptions = {
     origin: 'https://capitalhillsdevelopments.com', // Replace with your domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     allowedHeaders: ['Authorization', 'Content-Type'], // Allowed headers
     credentials: true, // Allow cookies/auth tokens to be sent
 };
@@ -17,14 +17,6 @@ const corsOptions = {
 // Use CORS middleware
 app.use(cors(corsOptions));
 
-// Custom handler for OPTIONS requests
-app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', 'https://capitalhillsdevelopments.com');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Authorization, Content-Type');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.sendStatus(204); // No Content response
-});
 
 // Body parser middleware
 app.use(express.json()); // For parsing application/json
