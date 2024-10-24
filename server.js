@@ -105,50 +105,6 @@ const unitSchema = new mongoose.Schema({
 
 
 const Unit = mongoose.model('Unit', unitSchema); // Using the 'units' collection
-
-// Route to get data for a specific project within a city
-app.get('/units/:cityName/projects/:projectName', async (req, res) => {
-    const { cityName, projectName } = req.params;
-    console.log('Received city name:', cityName);
-    console.log('Received project name:', projectName);
-    
-    try {
-        const cityData = await Unit.findOne({ _id: cityName }).exec();
-        if (!cityData) {
-            console.log('No city data found for:', cityName);
-            return res.json(null);  // Return null if no data is found
-        }
-
-        // Find the specific project by its name
-        const projectData = cityData.projects.find(project => project.name === projectName);
-        
-        if (!projectData) {
-            console.log(`No project data found for: ${projectName} in ${cityName}`);
-            return res.json(null);
-        }
-
-        console.log('Project data fetched:', projectData);
-        res.json(projectData);  // Send the specific project data
-    } catch (error) {
-        console.error('Error fetching city or project data:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-// Route to get data for a specific city by its name (or _id)
-app.get('/units/:cityName', async (req, res) => {
-    const cityName = req.params.cityName;
-    try {
-        const cityData = await Unit.findOne({ _id: cityName }).exec();
-        console.log(cityData); // Log the data to check if it includes the units
-        res.json(cityData);
-    } catch (error) {
-        console.error('Error fetching city data:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-
 app.post('/units/:cityName/projects', async (req, res) => {
     const { cityName } = req.params;
     const newProjectData = req.body;
@@ -246,6 +202,50 @@ app.delete('/units/:cityName/projects/:projectName', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+// Route to get data for a specific project within a city
+app.get('/units/:cityName/projects/:projectName', async (req, res) => {
+    const { cityName, projectName } = req.params;
+    console.log('Received city name:', cityName);
+    console.log('Received project name:', projectName);
+    
+    try {
+        const cityData = await Unit.findOne({ _id: cityName }).exec();
+        if (!cityData) {
+            console.log('No city data found for:', cityName);
+            return res.json(null);  // Return null if no data is found
+        }
+
+        // Find the specific project by its name
+        const projectData = cityData.projects.find(project => project.name === projectName);
+        
+        if (!projectData) {
+            console.log(`No project data found for: ${projectName} in ${cityName}`);
+            return res.json(null);
+        }
+
+        console.log('Project data fetched:', projectData);
+        res.json(projectData);  // Send the specific project data
+    } catch (error) {
+        console.error('Error fetching city or project data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Route to get data for a specific city by its name (or _id)
+app.get('/units/:cityName', async (req, res) => {
+    const cityName = req.params.cityName;
+    try {
+        const cityData = await Unit.findOne({ _id: cityName }).exec();
+        console.log(cityData); // Log the data to check if it includes the units
+        res.json(cityData);
+    } catch (error) {
+        console.error('Error fetching city data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
 
 
 
