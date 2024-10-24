@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 app.use(express.json()); // For parsing application/json
 
 
-mongoose.connect('mongodb://hazem:CHDahmed135@37.148.206.181:27017/capital', {
+mongoose.connect('mongodb://admin:CHDahmed135@37.148.206.181:27017/capital', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
