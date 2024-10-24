@@ -8,7 +8,7 @@ const app = express();
 
 
 const corsOptions = {
-    origin: 'https://capitalhillsdevelopments.com', // Replace with your domain
+    origin: '*', // Replace with your domain
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     allowedHeaders: ['Authorization', 'Content-Type'], // Allowed headers
     credentials: true, // Allow cookies/auth tokens to be sent
