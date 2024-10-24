@@ -9,8 +9,8 @@ const app = express();
 
 const corsOptions = {
     origin: '*', // Replace with your domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Authorization', 'Content-Type'], // Allowed headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Origin, Content-Type, Accept, Authorization'], // Allowed headers
     credentials: true, // Allow cookies/auth tokens to be sent
 };
 
