@@ -20,6 +20,7 @@ app.use(cors(corsOptions));
 
 // Body parser middleware
 app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
 
 mongoose.connect('mongodb://admin:CHDahmed135@37.148.206.181:27017/capital?authSource=admin', {
