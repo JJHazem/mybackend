@@ -8,16 +8,12 @@ const app = express();
 
 const corsOptions = {
     origin: 'https://capitalhillsdevelopments.com', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Authorization', 'Content-Type'],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204
+    credentials: true
 };
 
 app.use(cors(corsOptions));
-
-app.options('*', cors(corsOptions));  
 
 // Body parser middleware
 app.use(express.json()); // For parsing application/json
