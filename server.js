@@ -8,7 +8,7 @@ const app = express();
 
 const corsOptions = {
     origin: 'https://capitalhillsdevelopments.com', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
     allowedHeaders: ['Authorization', 'Content-Type'],
     credentials: true
 };
