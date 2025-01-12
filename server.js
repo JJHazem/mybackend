@@ -95,7 +95,8 @@ const unitSchema = new mongoose.Schema({
             ],
             amenities: { type: String, required: true },
             construction: { type: String, required: true },
-            brochure: { type: String, required: true }
+            brochure: { type: String, required: true },
+            lnk: { type: String, required: true }
         }
     ]
 });
